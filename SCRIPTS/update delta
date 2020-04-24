@@ -1,0 +1,6 @@
+
+
+'daily_total_confirmados', 'daily_total_activos',
+       'daily_total_decesos', 'daily_total_recuperados',
+       'daily_total_sospechosos', 'daily_total_descartados',
+       'daily_total_total'
