@@ -26,6 +26,7 @@ def Train():
     global TABLA_MADS, TABLA_STD, NEW_TRAINING, FINISHED_TRAINING
     fecha_act = A.Consulta()
     A.Diferencial(fecha_act)
+    A.AutoCommit()
     log.info("ASDF")
 
 def Copy():

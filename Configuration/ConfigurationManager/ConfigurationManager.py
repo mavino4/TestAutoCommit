@@ -6,7 +6,7 @@ class ConfigurationManager(object):
     _instance = None
 
     def __init__(self):
-        with open(os.path.dirname(os.path.abspath(__file__))+'\\..\\..\\appSettings.json', 'r') as f:
+        with open(os.path.dirname(os.path.abspath(__file__))+'/../../appSettings.json', 'r') as f:
             self._configuration = json.load(f)
 
     def __new__(cls):

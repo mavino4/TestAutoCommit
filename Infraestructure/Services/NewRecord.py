@@ -1,5 +1,6 @@
 import requests
 import json
+import os
 import time
 import sqlite3
 import pandas as pd
@@ -115,6 +116,12 @@ class NewRecord(object):
             and daily_depto = '{9}'  """.format(*val_i))
         conn.commit()
         conn.close()
+    
+    def AutoCommit(self):
+        os.system("git add .")
+        os.system('git commit -m "Autocommit {}"'.format(time.strftime("%Y%m%d %H%M")))
+        os.system("git push -u origin master")
+        self._logger.info("Se ejecuto el autocommit correctamente")
 
 
 
