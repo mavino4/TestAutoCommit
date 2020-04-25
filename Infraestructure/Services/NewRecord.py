@@ -97,14 +97,18 @@ class NewRecord(object):
 
         delta_df[['daily_id', 'daily_fecha', 'daily_depto']] = df_t[['daily_id', 'daily_fecha', 'daily_depto']]
 
-        valores_delta = [j.to_list() for i,j  in delta_df.iterrows()]
+        valores_delta = [j.to_list() for i,j  in delta_df[['daily_delta_confirmados',
+        'daily_delta_activos', 'daily_delta_decesos', 'daily_delta_recuperados',
+        'daily_delta_sospechosos', 'daily_delta_descartados',
+        'daily_delta_total','daily_id', 'daily_fecha', 'daily_depto']].iterrows()]
 
         conn = sqlite3.connect('BD_COVID19_BOL.sqlite')
         cur = conn.cursor()
 
         for val_i in valores_delta : 
             cur.execute("""UPDATE  daily_covid19_BO
-            SET   daily_delta_confirmados = {0}
+            SET   
+              daily_delta_confirmados = {0}
             , daily_delta_activos     =     {1} 
             , daily_delta_decesos     =     {2}
             , daily_delta_recuperados =  {3}

@@ -1,0 +1,28 @@
+2020-25-04 01:00:51 INFO     [apscheduler.scheduler.add_job] Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2020-25-04 01:00:51 INFO     [apscheduler.scheduler.add_job] Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2020-25-04 01:00:51 INFO     [apscheduler.scheduler._real_add_job] Added job "Train" to job store "default"
+2020-25-04 01:00:51 INFO     [apscheduler.scheduler._real_add_job] Added job "Copy" to job store "default"
+2020-25-04 01:00:51 INFO     [apscheduler.scheduler.start] Scheduler started
+2020-25-04 01:02:00 INFO     [apscheduler.executors.default.run_job] Running job "Train (trigger: cron[hour='1', minute='2,5,8'], next run at: 2020-04-25 01:02:00 -04)" (scheduled at 2020-04-25 01:02:00-04:00)
+2020-25-04 01:02:00 INFO     [__main__.Train] Invoke to Madcalculator
+2020-25-04 01:02:01 INFO     [Infraestructure.Services.NewRecord.Consulta] Se realizo la consulta : 24/04/20 20:59
+2020-25-04 01:02:01 INFO     [Infraestructure.Services.NewRecord.Consulta]   depto  confirmados  decesos  recuperados  sospechosos  descartados  total       fecha  activos
+0    LP          155       14           13            4         1168   1354  2020-04-24      128
+1    CB           70        6           13            0          900    989  2020-04-24       51
+2    SC          446       19           14            0         1786   2265  2020-04-24      413
+3    OR           65        2            8            0          258    333  2020-04-24       55
+4    PT           21        1            0           11          103    136  2020-04-24       20
+5    TJ            3        0            0            7           36     46  2020-04-24        3
+6    CH            2        0            0            3          115    120  2020-04-24        2
+7    BN           33        1            0           40           53    127  2020-04-24       32
+8    PN           12        1            6            2           71     92  2020-04-24        5
+2020-25-04 01:02:01 INFO     [Infraestructure.Services.NewRecord.Consulta] confirmados           807
+decesos                44
+recuperados            54
+sospechosos            67
+descartados          4490
+total                5462
+fecha          2020-04-24
+depto                 BOL
+activos               709
+dtype: object
