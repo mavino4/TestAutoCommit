@@ -1,0 +1,10 @@
+daily_fecha,daily_depto,daily_total_confirmados,daily_total_activos,daily_total_decesos,daily_total_recuperados,daily_total_sospechosos,daily_total_descartados,daily_total_total
+2020-04-24,BN,33,32,1,0,40,53,127
+2020-04-24,CB,70,51,6,13,0,900,989
+2020-04-24,CH,2,2,0,0,3,115,120
+2020-04-24,LP,155,128,14,13,4,1168,1354
+2020-04-24,OR,65,55,2,8,0,258,333
+2020-04-24,PN,12,5,1,6,2,71,92
+2020-04-24,PT,21,20,1,0,11,103,136
+2020-04-24,SC,446,413,19,14,0,1786,2265
+2020-04-24,TJ,3,3,0,0,7,36,46
