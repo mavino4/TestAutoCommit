@@ -191,3 +191,47 @@ class GenerateReports(object):
 		recuperados_ts.to_csv("time_series_covid19_recuperados_BO.csv",index=False)
 
 
+class ConsultaMunicipios(object):
+	_logger = None
+	def __init__(self):
+		self._logger = Logger.CreateLogger(__name__)
+
+	def Bolivia(self):
+		# Decesos
+		decesos = requests.get("https://cartocdn-gusc-d.global.ssl.fastly.net/juliael/api/v1/map/juliael@5266c6ad@7bcf5e7830ffcbbf71979fba83fbeacc:1587909430470/dataview/fa6d9d45-c1fb-4a32-a494-b59cb08dd33d")
+		time.sleep(1)
+		recuperados = requests.get("https://cartocdn-gusc-a.global.ssl.fastly.net/juliael/api/v1/map/juliael@5266c6ad@7bcf5e7830ffcbbf71979fba83fbeacc:1587909430470/dataview/52149491-d719-44f3-b278-0890a1e514f6")
+		time.sleep(1)
+		positivos = requests.get("https://cartocdn-gusc-a.global.ssl.fastly.net/juliael/api/v1/map/juliael@5266c6ad@7bcf5e7830ffcbbf71979fba83fbeacc:1587909430470/dataview/f1b7b77e-4465-4cca-8b2f-d4ebbdcb21f5?")
+
+		BOL = {"date_get" : positivos.headers["date"]
+		,"positivos" :positivos.json()["result"] 
+		,"decesos" : decesos.json()["result"]
+		,"recuperados" : recuperados.json()["result"]
+		,"activos" : positivos.json()["result"] -  decesos.json()["result"] - recuperados.json()["result"]
+		}
+
+		with open('{}.json'.format(BOL["date_get"]), 'w') as outfile:
+			json.dump(BOL, outfile)
+
+	def Municipios(self):
+		responses = []
+		for i in range(400):
+			registro_i = requests.get("https://cartocdn-gusc-c.global.ssl.fastly.net/juliael/api/v1/map/juliael@5266c6ad@7bcf5e7830ffcbbf71979fba83fbeacc:1587909430470/4/attributes/{}".format(i))
+			responses.append([i, registro_i.headers["Date"] , registro_i])
+			time.sleep(0.5)
+
+		VALUES = {}
+		for response_i in responses: 
+			if response_i[2].ok:
+				dict_i = {}
+				dict_i["date_get"] =  response_i[1]
+				dict_i.update(response_i[2].json())
+				VALUES[str(response_i[0])] = dict_i
+
+		CONSULTA_i = pd.DataFrame(VALUES).T.reset_index()
+		CONSULTA_i["date_get"] = pd.to_datetime(CONSULTA_i.date_get)
+		CONSULTA_i.fillna(value=0, inplace=True)
+		CONSULTA_i["activos"] = CONSULTA_i.positivos - CONSULTA_i.decesos - CONSULTA_i.recuperados
+
+		CONSULTA_i.to_csv("{} Municipios.csv".format(CONSULTA_i.date_get.max().strftime("%Y-%m-%d %H:%M")),index=False)

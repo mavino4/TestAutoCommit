@@ -35,8 +35,15 @@ def Train():
     else :
     	log.info("No se tienen nuevos días a registrar")
 
-def Copy():
+def NuevaConsulta():
     global TABLA_MADS,TABLA_STD, NEW_TRAINING, FINISHED_TRAINING
+    log.info('Invoke to Madcalculator')
+    A = ConsultaMunicipios()
+    B = NewRecord()
+
+    A.Bolivia()
+    A.Municipios()
+    B.AutoCommit()
     print('SDFG SDH')
     
 ## Definiendo el trigger bajo el cual se ejecutar� el entrenamiento
@@ -48,5 +55,5 @@ tg_copy = CronTrigger( **ConfigurationManager.GetValue("SchedulerCopy"))
 if __name__ == '__main__':
     scheduler = BlockingScheduler(job_defaults={'misfire_grace_time': 3600})
     scheduler.add_job(Train, trigger = tg_train )
-    scheduler.add_job(Copy, trigger = tg_copy )
+    scheduler.add_job(NuevaConsulta, trigger = tg_copy )
     scheduler.start()
