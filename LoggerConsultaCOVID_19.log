@@ -26,3 +26,74 @@ fecha          2020-04-24
 depto                 BOL
 activos               709
 dtype: object
+2020-25-04 01:02:28 INFO     [Infraestructure.Services.NewRecord.AutoCommit] Se ejecuto el autocommit correctamente
+2020-25-04 01:02:28 INFO     [__main__.Train] ASDF
+2020-25-04 01:02:28 INFO     [apscheduler.executors.default.run_job] Job "Train (trigger: cron[hour='1', minute='2,5,8'], next run at: 2020-04-25 01:05:00 -04)" executed successfully
+2020-25-04 20:36:06 INFO     [apscheduler.scheduler.add_job] Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2020-25-04 20:36:06 INFO     [apscheduler.scheduler.add_job] Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2020-25-04 20:36:06 INFO     [apscheduler.scheduler._real_add_job] Added job "Train" to job store "default"
+2020-25-04 20:36:06 INFO     [apscheduler.scheduler._real_add_job] Added job "Copy" to job store "default"
+2020-25-04 20:36:06 INFO     [apscheduler.scheduler.start] Scheduler started
+2020-25-04 20:36:33 INFO     [apscheduler.scheduler.add_job] Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2020-25-04 20:36:33 INFO     [apscheduler.scheduler.add_job] Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2020-25-04 20:36:33 INFO     [apscheduler.scheduler._real_add_job] Added job "Train" to job store "default"
+2020-25-04 20:36:33 INFO     [apscheduler.scheduler._real_add_job] Added job "Copy" to job store "default"
+2020-25-04 20:36:33 INFO     [apscheduler.scheduler.start] Scheduler started
+2020-25-04 20:38:00 INFO     [apscheduler.executors.default.run_job] Running job "Train (trigger: cron[hour='20', minute='38,40,50'], next run at: 2020-04-25 20:38:00 -04)" (scheduled at 2020-04-25 20:38:00-04:00)
+2020-25-04 20:38:00 INFO     [__main__.Train] Invoke to Madcalculator
+2020-25-04 20:38:14 ERROR    [apscheduler.executors.default.run_job] Job "Train (trigger: cron[hour='20', minute='38,40,50'], next run at: 2020-04-25 20:40:00 -04)" raised an exception
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.6/dist-packages/urllib3/connection.py", line 159, in _new_conn
+    (self._dns_host, self.port), self.timeout, **extra_kw)
+  File "/usr/local/lib/python3.6/dist-packages/urllib3/util/connection.py", line 57, in create_connection
+    for res in socket.getaddrinfo(host, port, family, socket.SOCK_STREAM):
+  File "/usr/lib/python3.6/socket.py", line 745, in getaddrinfo
+    for res in _socket.getaddrinfo(host, port, family, type, proto, flags):
+socket.gaierror: [Errno -2] Name or service not known
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.6/dist-packages/urllib3/connectionpool.py", line 600, in urlopen
+    chunked=chunked)
+  File "/usr/local/lib/python3.6/dist-packages/urllib3/connectionpool.py", line 343, in _make_request
+    self._validate_conn(conn)
+  File "/usr/local/lib/python3.6/dist-packages/urllib3/connectionpool.py", line 839, in _validate_conn
+    conn.connect()
+  File "/usr/local/lib/python3.6/dist-packages/urllib3/connection.py", line 301, in connect
+    conn = self._new_conn()
+  File "/usr/local/lib/python3.6/dist-packages/urllib3/connection.py", line 168, in _new_conn
+    self, "Failed to establish a new connection: %s" % e)
+urllib3.exceptions.NewConnectionError: <urllib3.connection.VerifiedHTTPSConnection object at 0x7f1351fd4470>: Failed to establish a new connection: [Errno -2] Name or service not known
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.6/dist-packages/requests/adapters.py", line 449, in send
+    timeout=timeout
+  File "/usr/local/lib/python3.6/dist-packages/urllib3/connectionpool.py", line 638, in urlopen
+    _stacktrace=sys.exc_info()[2])
+  File "/usr/local/lib/python3.6/dist-packages/urllib3/util/retry.py", line 398, in increment
+    raise MaxRetryError(_pool, url, error or ResponseError(cause))
+urllib3.exceptions.MaxRetryError: HTTPSConnectionPool(host='www.boliviasegura.gob.bo', port=443): Max retries exceeded with url: /wp-content/json/api.php (Caused by NewConnectionError('<urllib3.connection.VerifiedHTTPSConnection object at 0x7f1351fd4470>: Failed to establish a new connection: [Errno -2] Name or service not known',))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.6/dist-packages/apscheduler/executors/base.py", line 125, in run_job
+    retval = job.func(*job.args, **job.kwargs)
+  File "AppScheduler.py", line 28, in Train
+    fecha_act = A.Consulta()
+  File "/home/marco/Documents/ClubDataScience/Covid_19/TestAutoCommit/Infraestructure/Services/NewRecord.py", line 19, in Consulta
+    registro_i = requests.get("https://www.boliviasegura.gob.bo/wp-content/json/api.php")
+  File "/usr/local/lib/python3.6/dist-packages/requests/api.py", line 75, in get
+    return request('get', url, params=params, **kwargs)
+  File "/usr/local/lib/python3.6/dist-packages/requests/api.py", line 60, in request
+    return session.request(method=method, url=url, **kwargs)
+  File "/usr/local/lib/python3.6/dist-packages/requests/sessions.py", line 533, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/usr/local/lib/python3.6/dist-packages/requests/sessions.py", line 646, in send
+    r = adapter.send(request, **kwargs)
+  File "/usr/local/lib/python3.6/dist-packages/requests/adapters.py", line 516, in send
+    raise ConnectionError(e, request=request)
+requests.exceptions.ConnectionError: HTTPSConnectionPool(host='www.boliviasegura.gob.bo', port=443): Max retries exceeded with url: /wp-content/json/api.php (Caused by NewConnectionError('<urllib3.connection.VerifiedHTTPSConnection object at 0x7f1351fd4470>: Failed to establish a new connection: [Errno -2] Name or service not known',))
