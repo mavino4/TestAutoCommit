@@ -22,12 +22,18 @@ FINISHED_TRAINING   = False
 def Train():
     log.info('Invoke to Madcalculator')
     A = NewRecord()
+    d = GenerateReports()
     # Definiendo controladores
     global TABLA_MADS, TABLA_STD, NEW_TRAINING, FINISHED_TRAINING
     fecha_act = A.Consulta()
-    A.Diferencial(fecha_act)
-    A.AutoCommit()
-    log.info("ASDF")
+
+    if fecha_act: 
+	    A.Diferencial(fecha_act)
+	    d.ReportDaily(fecha_act)
+	    A.AutoCommit()
+	    log.info("Se registro nuevo día")
+    else :
+    	log.info("No se tienen nuevos días a registrar")
 
 def Copy():
     global TABLA_MADS,TABLA_STD, NEW_TRAINING, FINISHED_TRAINING
