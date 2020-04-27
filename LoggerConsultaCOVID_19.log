@@ -11479,3 +11479,15 @@ FileNotFoundError: [Errno 2] No such file or directory: '/Bolivia/Mon, 27 Apr 20
 2020-27-04 03:42:41 INFO     [apscheduler.executors.default.run_job] Job "NuevaConsulta (trigger: cron[minute='0,30'], next run at: 2020-04-27 04:00:00 UTC)" executed successfully
 2020-27-04 04:00:00 INFO     [apscheduler.executors.default.run_job] Running job "NuevaConsulta (trigger: cron[minute='0,30'], next run at: 2020-04-27 04:00:00 UTC)" (scheduled at 2020-04-27 04:00:00+00:00)
 2020-27-04 04:00:00 INFO     [__main__.NuevaConsulta] Invoke to Madcalculator
+2020-27-04 04:12:48 INFO     [Infraestructure.Services.NewRecord.AutoCommit] Se ejecuto el autocommit correctamente
+2020-27-04 04:12:48 INFO     [apscheduler.executors.default.run_job] Job "NuevaConsulta (trigger: cron[minute='0,30'], next run at: 2020-04-27 04:30:00 UTC)" executed successfully
+2020-27-04 04:30:00 INFO     [apscheduler.executors.default.run_job] Running job "NuevaConsulta (trigger: cron[minute='0,30'], next run at: 2020-04-27 04:30:00 UTC)" (scheduled at 2020-04-27 04:30:00+00:00)
+2020-27-04 04:30:00 INFO     [__main__.NuevaConsulta] Invoke to Madcalculator
+2020-27-04 04:32:12 INFO     [apscheduler.scheduler.add_job] Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2020-27-04 04:32:12 INFO     [apscheduler.scheduler._real_add_job] Added job "NuevaConsulta" to job store "default"
+2020-27-04 04:32:12 INFO     [apscheduler.scheduler.start] Scheduler started
+2020-27-04 04:33:17 INFO     [apscheduler.scheduler.add_job] Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2020-27-04 04:33:17 INFO     [apscheduler.scheduler._real_add_job] Added job "NuevaConsulta" to job store "default"
+2020-27-04 04:33:17 INFO     [apscheduler.scheduler.start] Scheduler started
+2020-27-04 04:35:00 INFO     [apscheduler.executors.default.run_job] Running job "NuevaConsulta (trigger: cron[minute='0,35'], next run at: 2020-04-27 05:00:00 UTC)" (scheduled at 2020-04-27 04:35:00+00:00)
+2020-27-04 04:35:00 INFO     [__main__.NuevaConsulta] Invoke to Madcalculator

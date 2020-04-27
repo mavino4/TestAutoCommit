@@ -202,7 +202,7 @@ class ConsultaMunicipios(object):
 		time.sleep(1)
 		recuperados = requests.get("https://cartocdn-gusc-a.global.ssl.fastly.net/juliael/api/v1/map/juliael@5266c6ad@7bcf5e7830ffcbbf71979fba83fbeacc:1587909430470/dataview/52149491-d719-44f3-b278-0890a1e514f6")
 		time.sleep(1)
-		positivos = requests.get("https://cartocdn-gusc-a.global.ssl.fastly.net/juliael/api/v1/map/juliael@5266c6ad@7bcf5e7830ffcbbf71979fba83fbeacc:1587909430470/dataview/f1b7b77e-4465-4cca-8b2f-d4ebbdcb21f5?")
+		positivos = requests.get("https://cartocdn-gusc-a.global.ssl.fastly.net/juliael/api/v1/map/juliael@5266c6ad@7bcf5e7830ffcbbf71979fba83fbeacc:1587909430470/dataview/f1b7b77e-4465-4cca-8b2f-d4ebbdcb21f5")
 
 		BOL = {"date_get" : positivos.headers["date"]
 		,"positivos" :positivos.json()["result"] 
