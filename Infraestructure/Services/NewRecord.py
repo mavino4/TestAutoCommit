@@ -16,7 +16,7 @@ class NewRecord(object):
         self._logger = Logger.CreateLogger(__name__)
     
     def Consulta(self):
-        registro_i = requests.get("https://www.boliviasegura.gob.bo/wp-content/json/api.php")
+        registro_i = requests.get("https://boliviasegura.agetic.gob.bo/wp-content/json/api.php")
         registro_i_json = registro_i.json()
         registro_i_json["fecha"]
         self._logger.info('Se realizo la consulta : {}'.format(registro_i_json["fecha"]))
@@ -31,7 +31,7 @@ class NewRecord(object):
         order by daily_depto """.format(fecha_consulta = pd.to_datetime(registro_i_json["fecha"]).strftime("%Y-%m-%d")), conn)
         conn.close()
 
-        if df_t.shape[0] > 0: 
+        if not df_t.shape[0] > 0: 
 
 	        # Por departamentos 
 	        day_i = {}

@@ -19,7 +19,7 @@ TABLA_STD           = None
 NEW_TRAINING        = False 
 FINISHED_TRAINING   = False
 
-def Train():
+def NacionalDepartamental():
     log.info('Invoke to Madcalculator')
     A = NewRecord()
     d = GenerateReports()
@@ -54,6 +54,6 @@ tg_copy = CronTrigger( **ConfigurationManager.GetValue("SchedulerCopy"))
 
 if __name__ == '__main__':
     scheduler = BlockingScheduler(job_defaults={'misfire_grace_time': 3600})
-    #scheduler.add_job(Train, trigger = tg_train )
-    scheduler.add_job(NuevaConsulta, trigger = tg_copy )
+    scheduler.add_job(NacionalDepartamental, trigger = tg_train )
+    #scheduler.add_job(NuevaConsulta, trigger = tg_copy )
     scheduler.start()
