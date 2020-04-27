@@ -11377,3 +11377,26 @@ Traceback (most recent call last):
   File "/usr/lib/python3/dist-packages/simplejson/decoder.py", line 404, in raw_decode
     return self.scan_once(s, idx=_w(s, idx).end())
 simplejson.scanner.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+2020-26-04 23:57:46 INFO     [Infraestructure.Services.NewRecord.AutoCommit] Se ejecuto el autocommit correctamente
+2020-26-04 23:57:46 INFO     [apscheduler.executors.default.run_job] Job "NuevaConsulta (trigger: cron[minute='0,15,30,45'], next run at: 2020-04-27 00:00:00 UTC)" executed successfully
+2020-27-04 00:00:00 INFO     [apscheduler.executors.default.run_job] Running job "NuevaConsulta (trigger: cron[minute='0,15,30,45'], next run at: 2020-04-27 00:00:00 UTC)" (scheduled at 2020-04-27 00:00:00+00:00)
+2020-27-04 00:00:00 INFO     [__main__.NuevaConsulta] Invoke to Madcalculator
+2020-27-04 00:00:00 INFO     [apscheduler.executors.default.run_job] Running job "Train (trigger: cron[minute='0,15,30,45'], next run at: 2020-04-27 00:15:00 UTC)" (scheduled at 2020-04-27 00:00:00+00:00)
+2020-27-04 00:00:00 INFO     [__main__.Train] Invoke to Madcalculator
+2020-27-04 00:00:00 ERROR    [apscheduler.executors.default.run_job] Job "Train (trigger: cron[minute='0,15,30,45'], next run at: 2020-04-27 00:15:00 UTC)" raised an exception
+Traceback (most recent call last):
+  File "/home/pi/.local/lib/python3.5/site-packages/apscheduler/executors/base.py", line 125, in run_job
+    retval = job.func(*job.args, **job.kwargs)
+  File "AppScheduler.py", line 28, in Train
+    fecha_act = A.Consulta()
+  File "/home/pi/Documents/Covid_19/TestAutoCommit/Infraestructure/Services/NewRecord.py", line 20, in Consulta
+    registro_i_json = registro_i.json()
+  File "/usr/lib/python3/dist-packages/requests/models.py", line 850, in json
+    return complexjson.loads(self.text, **kwargs)
+  File "/usr/lib/python3/dist-packages/simplejson/__init__.py", line 516, in loads
+    return _default_decoder.decode(s)
+  File "/usr/lib/python3/dist-packages/simplejson/decoder.py", line 374, in decode
+    obj, end = self.raw_decode(s)
+  File "/usr/lib/python3/dist-packages/simplejson/decoder.py", line 404, in raw_decode
+    return self.scan_once(s, idx=_w(s, idx).end())
+simplejson.scanner.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
