@@ -11629,3 +11629,37 @@ fecha          2020-04-26
 depto                 BOL
 activos               820
 dtype: object
+2020-27-04 19:50:08 INFO     [Infraestructure.Services.NewRecord.AutoCommit] Se ejecuto el autocommit correctamente
+2020-27-04 19:50:08 INFO     [__main__.NacionalDepartamental] Se registro nuevo día
+2020-27-04 19:50:08 INFO     [apscheduler.executors.default.run_job] Job "NacionalDepartamental (trigger: cron[minute='15,50'], next run at: 2020-04-27 20:15:00 UTC)" executed successfully
+2020-27-04 19:54:58 INFO     [apscheduler.scheduler.add_job] Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2020-27-04 19:54:58 INFO     [apscheduler.scheduler._real_add_job] Added job "NacionalDepartamental" to job store "default"
+2020-27-04 19:54:58 INFO     [apscheduler.scheduler.start] Scheduler started
+2020-27-04 19:55:57 INFO     [apscheduler.scheduler.add_job] Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2020-27-04 19:55:57 INFO     [apscheduler.scheduler._real_add_job] Added job "NacionalDepartamental" to job store "default"
+2020-27-04 19:55:57 INFO     [apscheduler.scheduler.start] Scheduler started
+2020-27-04 19:56:00 INFO     [apscheduler.executors.default.run_job] Running job "NacionalDepartamental (trigger: cron[minute='15,56'], next run at: 2020-04-27 20:15:00 UTC)" (scheduled at 2020-04-27 19:56:00+00:00)
+2020-27-04 19:56:00 INFO     [__main__.NacionalDepartamental] Invoke to Madcalculator
+2020-27-04 19:56:01 INFO     [Infraestructure.Services.NewRecord.Consulta] Se realizo la consulta : 26/04/20 20:40
+2020-27-04 19:56:01 INFO     [Infraestructure.Services.NewRecord.Consulta]   depto  confirmados  decesos  ...  total       fecha  activos
+0    BN           57        1  ...    171  2020-04-26       56
+1    CB           78        6  ...   1028  2020-04-26       59
+2    CH            2        0  ...    125  2020-04-26        2
+3    LP          168       15  ...   1424  2020-04-26      137
+4    OR           79        4  ...    371  2020-04-26       67
+5    PN           12        1  ...     92  2020-04-26        5
+6    PT           26        1  ...    150  2020-04-26       25
+7    SC          525       22  ...   2579  2020-04-26      466
+8    TJ            3        0  ...     48  2020-04-26        3
+
+[9 rows x 9 columns]
+2020-27-04 19:56:02 INFO     [Infraestructure.Services.NewRecord.Consulta] confirmados           950
+decesos                50
+descartados          4841
+recuperados            80
+sospechosos            67
+total                5988
+fecha          2020-04-26
+depto                 BOL
+activos               820
+dtype: object
