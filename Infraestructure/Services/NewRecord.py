@@ -211,7 +211,7 @@ class ConsultaMunicipios(object):
 		,"activos" : positivos.json()["result"] -  decesos.json()["result"] - recuperados.json()["result"]
 		}
 
-		with open('{}.json'.format(BOL["date_get"]), 'w') as outfile:
+		with open('Bolivia/{}.json'.format(BOL["date_get"]), 'w') as outfile:
 			json.dump(BOL, outfile)
 
 	def Municipios(self):
@@ -234,4 +234,4 @@ class ConsultaMunicipios(object):
 		CONSULTA_i.fillna(value=0, inplace=True)
 		CONSULTA_i["activos"] = CONSULTA_i.positivos - CONSULTA_i.decesos - CONSULTA_i.recuperados
 
-		CONSULTA_i.to_csv("{} Municipios.csv".format(CONSULTA_i.date_get.max().strftime("%Y-%m-%d %H:%M")),index=False)
+		CONSULTA_i.to_csv("Municipios/{} Municipios.csv".format(CONSULTA_i.date_get.max().strftime("%Y-%m-%d %H:%M")),index=False)

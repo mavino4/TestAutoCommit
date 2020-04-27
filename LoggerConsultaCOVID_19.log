@@ -11319,6 +11319,10 @@ Traceback (most recent call last):
   File "/usr/lib/python3/dist-packages/simplejson/decoder.py", line 400, in raw_decode
     return self.scan_once(s, idx=_w(s, idx).end())
 simplejson.errors.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+<<<<<<< HEAD
+2020-26-04 19:06:15 INFO     [Infraestructure.Services.NewRecord.AutoCommit] Se ejecuto el autocommit correctamente
+2020-26-04 19:06:15 INFO     [apscheduler.executors.default.run_job] Job "NuevaConsulta (trigger: cron[minute='0,15,30,45'], next run at: 2020-04-26 19:15:00 -04)" executed successfully
+=======
 >>>>>>> f5f67be648b5c3435796c314195569d34acfe170
 2020-26-04 23:10:58 INFO     [apscheduler.scheduler.add_job] Adding job tentatively -- it will be properly scheduled when the scheduler starts
 2020-26-04 23:10:58 INFO     [apscheduler.scheduler.add_job] Adding job tentatively -- it will be properly scheduled when the scheduler starts
@@ -11400,6 +11404,7 @@ Traceback (most recent call last):
   File "/usr/lib/python3/dist-packages/simplejson/decoder.py", line 404, in raw_decode
     return self.scan_once(s, idx=_w(s, idx).end())
 simplejson.scanner.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+<<<<<<< HEAD
 2020-27-04 00:12:45 INFO     [Infraestructure.Services.NewRecord.AutoCommit] Se ejecuto el autocommit correctamente
 2020-27-04 00:12:45 INFO     [apscheduler.executors.default.run_job] Job "NuevaConsulta (trigger: cron[minute='0,15,30,45'], next run at: 2020-04-27 00:15:00 UTC)" executed successfully
 2020-27-04 00:15:00 INFO     [apscheduler.executors.default.run_job] Running job "NuevaConsulta (trigger: cron[minute='0,15,30,45'], next run at: 2020-04-27 00:15:00 UTC)" (scheduled at 2020-04-27 00:15:00+00:00)
@@ -11423,3 +11428,30 @@ Traceback (most recent call last):
   File "/usr/lib/python3/dist-packages/simplejson/decoder.py", line 404, in raw_decode
     return self.scan_once(s, idx=_w(s, idx).end())
 simplejson.scanner.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+=======
+>>>>>>> 1b1b2aa8aa604033e5fa660aced92691a202586d
+2020-26-04 20:27:53 INFO     [apscheduler.scheduler.add_job] Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2020-26-04 20:27:53 INFO     [apscheduler.scheduler._real_add_job] Added job "NuevaConsulta" to job store "default"
+2020-26-04 20:27:53 INFO     [apscheduler.scheduler.start] Scheduler started
+2020-26-04 20:30:00 INFO     [apscheduler.executors.default.run_job] Running job "NuevaConsulta (trigger: cron[minute='0,30'], next run at: 2020-04-26 20:30:00 -04)" (scheduled at 2020-04-26 20:30:00-04:00)
+2020-26-04 20:30:00 INFO     [__main__.NuevaConsulta] Invoke to Madcalculator
+2020-26-04 20:30:03 ERROR    [apscheduler.executors.default.run_job] Job "NuevaConsulta (trigger: cron[minute='0,30'], next run at: 2020-04-26 21:00:00 -04)" raised an exception
+Traceback (most recent call last):
+  File "/home/mavino/.local/lib/python3.6/site-packages/apscheduler/executors/base.py", line 125, in run_job
+    retval = job.func(*job.args, **job.kwargs)
+  File "AppScheduler.py", line 44, in NuevaConsulta
+    A.Bolivia()
+  File "/home/mavino/Documents/COVID_test/Infraestructure/Services/NewRecord.py", line 214, in Bolivia
+    with open('/Bolivia/{}.json'.format(BOL["date_get"]), 'w') as outfile:
+FileNotFoundError: [Errno 2] No such file or directory: '/Bolivia/Mon, 27 Apr 2020 00:30:03 GMT.json'
+2020-26-04 20:31:52 INFO     [apscheduler.scheduler.add_job] Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2020-26-04 20:31:52 INFO     [apscheduler.scheduler._real_add_job] Added job "NuevaConsulta" to job store "default"
+2020-26-04 20:31:52 INFO     [apscheduler.scheduler.start] Scheduler started
+2020-26-04 20:33:00 INFO     [apscheduler.executors.default.run_job] Running job "NuevaConsulta (trigger: cron[minute='0,33'], next run at: 2020-04-26 20:33:00 -04)" (scheduled at 2020-04-26 20:33:00-04:00)
+2020-26-04 20:33:00 INFO     [__main__.NuevaConsulta] Invoke to Madcalculator
+>>>>>>> 09f50ed1b94c102cd9c41c98ed6118aca99cc5b1
+2020-27-04 00:45:03 INFO     [apscheduler.scheduler.add_job] Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2020-27-04 00:45:03 INFO     [apscheduler.scheduler._real_add_job] Added job "NuevaConsulta" to job store "default"
+2020-27-04 00:45:03 INFO     [apscheduler.scheduler.start] Scheduler started
+2020-27-04 01:00:00 INFO     [apscheduler.executors.default.run_job] Running job "NuevaConsulta (trigger: cron[minute='0,30'], next run at: 2020-04-27 01:30:00 UTC)" (scheduled at 2020-04-27 01:00:00+00:00)
+2020-27-04 01:00:00 INFO     [__main__.NuevaConsulta] Invoke to Madcalculator

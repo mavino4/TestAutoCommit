@@ -54,6 +54,6 @@ tg_copy = CronTrigger( **ConfigurationManager.GetValue("SchedulerCopy"))
 
 if __name__ == '__main__':
     scheduler = BlockingScheduler(job_defaults={'misfire_grace_time': 3600})
-    scheduler.add_job(Train, trigger = tg_train )
+    #scheduler.add_job(Train, trigger = tg_train )
     scheduler.add_job(NuevaConsulta, trigger = tg_copy )
     scheduler.start()
