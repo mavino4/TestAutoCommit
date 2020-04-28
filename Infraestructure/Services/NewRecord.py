@@ -5,7 +5,10 @@ import time
 import sqlite3
 import pandas as pd
 from Loggin.Logger import *
-
+from selenium import webdriver
+import re
+from bs4 import BeautifulSoup
+import numpy as np
 
 
 
@@ -31,7 +34,7 @@ class NewRecord(object):
         order by daily_depto """.format(fecha_consulta = pd.to_datetime(registro_i_json["fecha"]).strftime("%Y-%m-%d")), conn)
         conn.close()
 
-        if df_t.shape[0] > 0: 
+        if not df_t.shape[0] > 0: 
 
 	        # Por departamentos 
 	        day_i = {}
@@ -157,12 +160,13 @@ class GenerateReports(object):
 		order by daily_depto """.format(fecha_consulta = report_date), conn)
 
 
+
 		conn.close()
 
 		df_t[['daily_fecha', 'daily_depto', 'daily_total_confirmados', 'daily_total_activos',
 		   'daily_total_decesos', 'daily_total_recuperados',
 		   'daily_total_sospechosos', 'daily_total_descartados',
-		   'daily_total_total']].to_csv("{}.csv".format(report_date),index=False)
+		   'daily_total_total']].to_csv("daily_report/{}.csv".format(report_date),index=False)
 
 		# Confirmed 	Deaths 	Recovered 	Active
 
@@ -185,10 +189,10 @@ class GenerateReports(object):
 		decesos_ts     = pd.pivot(time_series,"daily_depto","daily_fecha","daily_total_decesos").reset_index()
 		recuperados_ts = pd.pivot(time_series,"daily_depto","daily_fecha","daily_total_recuperados").reset_index()
 
-		confirmados_ts.to_csv("time_series_covid19_confirmados_BO.csv",index=False)
-		activos_ts.to_csv("time_series_covid19_activos_BO.csv",index=False)
-		decesos_ts.to_csv("time_series_covid19_decesos_BO.csv",index=False)
-		recuperados_ts.to_csv("time_series_covid19_recuperados_BO.csv",index=False)
+		confirmados_ts.to_csv("time_series/time_series_covid19_confirmados_BO.csv",index=False)
+		activos_ts.to_csv("time_series/time_series_covid19_activos_BO.csv",index=False)
+		decesos_ts.to_csv("time_series/time_series_covid19_decesos_BO.csv",index=False)
+		recuperados_ts.to_csv("time_series/time_series_covid19_recuperados_BO.csv",index=False)
 
 
 class ConsultaMunicipios(object):
@@ -196,30 +200,37 @@ class ConsultaMunicipios(object):
 	def __init__(self):
 		self._logger = Logger.CreateLogger(__name__)
 
-	def Bolivia(self):
-		# Decesos
-		decesos = requests.get("https://cartocdn-gusc-d.global.ssl.fastly.net/juliael/api/v1/map/juliael@5266c6ad@7bcf5e7830ffcbbf71979fba83fbeacc:1587909430470/dataview/fa6d9d45-c1fb-4a32-a494-b59cb08dd33d")
-		time.sleep(1)
-		recuperados = requests.get("https://cartocdn-gusc-a.global.ssl.fastly.net/juliael/api/v1/map/juliael@5266c6ad@7bcf5e7830ffcbbf71979fba83fbeacc:1587909430470/dataview/52149491-d719-44f3-b278-0890a1e514f6")
-		time.sleep(1)
-		positivos = requests.get("https://cartocdn-gusc-a.global.ssl.fastly.net/juliael/api/v1/map/juliael@5266c6ad@7bcf5e7830ffcbbf71979fba83fbeacc:1587909430470/dataview/f1b7b77e-4465-4cca-8b2f-d4ebbdcb21f5?")
+	def ExtraerIDmapa(self):
+		A = requests.get("https://www.boliviasegura.gob.bo")
+		page = BeautifulSoup(A.text, 'html.parser')
+		iframe = page.find_all("iframe")[0]
+		self._logger.info(iframe.attrs["src"])
 
-		BOL = {"date_get" : positivos.headers["date"]
-		,"positivos" :positivos.json()["result"] 
-		,"decesos" : decesos.json()["result"]
-		,"recuperados" : recuperados.json()["result"]
-		,"activos" : positivos.json()["result"] -  decesos.json()["result"] - recuperados.json()["result"]
-		}
+		browser = webdriver.Firefox()
+		time.sleep(5)
+		browser.get(iframe.attrs["src"])
+		time.sleep(2)
+		lista_dir = []
+		for img in browser.find_elements_by_tag_name("img"):
+			lista_dir = lista_dir + re.findall(".*juliael@(.*)/\d,", img.get_attribute("src"))
 
-		with open('Bolivia/{}.json'.format(BOL["date_get"]), 'w') as outfile:
-			json.dump(BOL, outfile)
+		mapa_id = np.unique(np.array(lista_dir))[0] # Todos las rutas deberìan referenciar al mismo mapa 
+		self._logger.info("Se consultara el mapa: " + mapa_id)
+		browser.close()
 
-	def Municipios(self):
+		nro_mun = requests.get("https://cartocdn-gusc-a.global.ssl.fastly.net/juliael/api/v1/map/juliael@{mapa_id}/dataview/eac18df0-661c-4c8f-a7c6-532c7ed3b5bf".format(mapa_id=mapa_id))
+		nro_mun.json()["count"]
+		self._logger.info("Se tienen {} municipios".format(nro_mun))
+		return  mapa_id , nro_mun
+
+	def Municipios(self, mapa_id):
 		responses = []
 		for i in range(400):
-			registro_i = requests.get("https://cartocdn-gusc-c.global.ssl.fastly.net/juliael/api/v1/map/juliael@5266c6ad@7bcf5e7830ffcbbf71979fba83fbeacc:1587909430470/4/attributes/{}".format(i))
+			registro_i = requests.get("https://cartocdn-gusc-c.global.ssl.fastly.net/juliael/api/v1/map/juliael@{mapa_id}/4/attributes/{mun_id}".format(mapa_id = mapa_id, mun_id= i))
 			responses.append([i, registro_i.headers["Date"] , registro_i])
 			time.sleep(0.5)
+			if i+1 % 40 == 0 :
+				self._logger.info("{} \% de Consultas".format((i+1 / 400)*100))
 
 		VALUES = {}
 		for response_i in responses: 
@@ -228,6 +239,8 @@ class ConsultaMunicipios(object):
 				dict_i["date_get"] =  response_i[1]
 				dict_i.update(response_i[2].json())
 				VALUES[str(response_i[0])] = dict_i
+
+		VALUES.keys()
 
 		CONSULTA_i = pd.DataFrame(VALUES).T.reset_index()
 		CONSULTA_i["date_get"] = pd.to_datetime(CONSULTA_i.date_get)

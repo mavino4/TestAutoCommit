@@ -35,4 +35,8 @@ INSERT INTO "main"."daily_covid19_BO" ( "daily_id",  "daily_fecha", "daily_depto
  "daily_total_confirmados",  "daily_total_decesos", "daily_total_recuperados", "daily_total_activos",
  "daily_total_sospechosos", "daily_total_descartados", "daily_total_total") VALUES
 ( 171, '2020-04-25','CH' ,2 		,0 	,0 	,2 	 ,0	,0,0);
+<<<<<<< HEAD
  
+=======
+ 
+>>>>>>> b979fd2e4c56f5f245ac67a11f5518d099ddb5ec
