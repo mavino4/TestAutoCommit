@@ -1,5 +1,6 @@
 #Ignore all logs
 *.log
+
 #Ignore folders
 Notebooks/
 SCRIPTS/
