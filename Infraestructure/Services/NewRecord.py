@@ -9,6 +9,7 @@ from selenium import webdriver
 import re
 from bs4 import BeautifulSoup
 import numpy as np
+from tqdm import tqdm
 
 
 
@@ -206,7 +207,7 @@ class ConsultaMunicipios(object):
 		iframe = page.find_all("iframe")[0]
 		self._logger.info(iframe.attrs["src"])
 
-		browser = webdriver.Firefox()
+		browser = webdriver.Chrome()
 		time.sleep(5)
 		browser.get(iframe.attrs["src"])
 		time.sleep(2)
@@ -220,17 +221,17 @@ class ConsultaMunicipios(object):
 
 		nro_mun = requests.get("https://cartocdn-gusc-a.global.ssl.fastly.net/juliael/api/v1/map/juliael@{mapa_id}/dataview/eac18df0-661c-4c8f-a7c6-532c7ed3b5bf".format(mapa_id=mapa_id))
 		nro_mun.json()["count"]
-		self._logger.info("Se tienen {} municipios".format(nro_mun))
-		return  mapa_id , nro_mun
+		self._logger.info("Se tienen {} municipios".format(nro_mun.json()["count"]))
+		return  mapa_id , nro_mun.json()["count"]
 
 	def Municipios(self, mapa_id):
 		responses = []
-		for i in range(400):
+		for i in tqdm(range(400)):
 			registro_i = requests.get("https://cartocdn-gusc-c.global.ssl.fastly.net/juliael/api/v1/map/juliael@{mapa_id}/4/attributes/{mun_id}".format(mapa_id = mapa_id, mun_id= i))
 			responses.append([i, registro_i.headers["Date"] , registro_i])
 			time.sleep(0.5)
-			if i+1 % 40 == 0 :
-				self._logger.info("{} \% de Consultas".format((i+1 / 400)*100))
+			if (i+1) % 40 == 0 :
+				self._logger.info("{} \% de Consultas".format(((i+1) / 400)*100))
 
 		VALUES = {}
 		for response_i in responses: 

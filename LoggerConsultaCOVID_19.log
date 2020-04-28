@@ -12402,3 +12402,61 @@ NameError: name 'np' is not defined
 2020-28-04 13:52:00 INFO     [apscheduler.executors.default.run_job] Running job "MunicipiosConsulta (trigger: cron[minute='15,52'], next run at: 2020-04-28 13:52:00 -04)" (scheduled at 2020-04-28 13:52:00-04:00)
 2020-28-04 13:52:00 INFO     [__main__.MunicipiosConsulta] Ejecutando la nueva consulta municipal
 2020-28-04 13:52:01 INFO     [Infraestructure.Services.NewRecord.ExtraerIDmapa] https://juliael.carto.com/builder/c70fa175-3e6a-4955-8088-89048c6e6886/embed
+2020-28-04 13:58:25 INFO     [Infraestructure.Services.NewRecord.AutoCommit] Se ejecuto el autocommit correctamente
+2020-28-04 13:58:25 INFO     [__main__.MunicipiosConsulta] Se agrego exitosamente la consulta MUNICIPAL
+2020-28-04 13:58:25 INFO     [apscheduler.executors.default.run_job] Job "MunicipiosConsulta (trigger: cron[minute='15,52'], next run at: 2020-04-28 14:15:00 -04)" executed successfully
+2020-28-04 14:00:00 INFO     [apscheduler.executors.default.run_job] Running job "NacionalDepartamental (trigger: cron[minute='0,15,42'], next run at: 2020-04-28 14:00:00 -04)" (scheduled at 2020-04-28 14:00:00-04:00)
+2020-28-04 14:00:00 INFO     [__main__.NacionalDepartamental] Consulta general y departamental
+2020-28-04 14:00:00 INFO     [Infraestructure.Services.NewRecord.Consulta] Se realizo la consulta : 27/04/20 21:20
+2020-28-04 14:00:00 INFO     [__main__.NacionalDepartamental] No se tienen nuevos días a registrar NACIONAL y DEPARTAMENTAL
+2020-28-04 14:00:00 INFO     [apscheduler.executors.default.run_job] Job "NacionalDepartamental (trigger: cron[minute='0,15,42'], next run at: 2020-04-28 14:15:00 -04)" executed successfully
+2020-28-04 17:55:46 INFO     [apscheduler.scheduler.add_job] Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2020-28-04 17:55:46 INFO     [apscheduler.scheduler.add_job] Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2020-28-04 17:55:46 INFO     [apscheduler.scheduler._real_add_job] Added job "NacionalDepartamental" to job store "default"
+2020-28-04 17:55:46 INFO     [apscheduler.scheduler._real_add_job] Added job "MunicipiosConsulta" to job store "default"
+2020-28-04 17:55:46 INFO     [apscheduler.scheduler.start] Scheduler started
+2020-28-04 17:56:01 INFO     [apscheduler.scheduler.add_job] Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2020-28-04 17:56:01 INFO     [apscheduler.scheduler.add_job] Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2020-28-04 17:56:01 INFO     [apscheduler.scheduler._real_add_job] Added job "NacionalDepartamental" to job store "default"
+2020-28-04 17:56:01 INFO     [apscheduler.scheduler._real_add_job] Added job "MunicipiosConsulta" to job store "default"
+2020-28-04 17:56:01 INFO     [apscheduler.scheduler.start] Scheduler started
+2020-28-04 17:57:00 INFO     [apscheduler.executors.default.run_job] Running job "MunicipiosConsulta (trigger: cron[minute='15,57'], next run at: 2020-04-28 17:57:00 -04)" (scheduled at 2020-04-28 17:57:00-04:00)
+2020-28-04 17:57:00 INFO     [__main__.MunicipiosConsulta] Ejecutando la nueva consulta municipal
+2020-28-04 17:57:01 INFO     [Infraestructure.Services.NewRecord.ExtraerIDmapa] https://juliael.carto.com/builder/c70fa175-3e6a-4955-8088-89048c6e6886/embed
+2020-28-04 17:57:13 INFO     [Infraestructure.Services.NewRecord.ExtraerIDmapa] Se consultara el mapa: 293a2875@a60cb7b38355a207a67a1ea6c9152373:1588040459439
+2020-28-04 17:57:13 INFO     [Infraestructure.Services.NewRecord.ExtraerIDmapa] Se tienen <Response [200]> municipios
+2020-28-04 18:00:00 INFO     [apscheduler.executors.default.run_job] Running job "NacionalDepartamental (trigger: cron[minute='0,15,42'], next run at: 2020-04-28 18:00:00 -04)" (scheduled at 2020-04-28 18:00:00-04:00)
+2020-28-04 18:00:00 INFO     [__main__.NacionalDepartamental] Consulta general y departamental
+2020-28-04 18:00:00 INFO     [Infraestructure.Services.NewRecord.Consulta] Se realizo la consulta : 27/04/20 21:20
+2020-28-04 18:00:00 INFO     [__main__.NacionalDepartamental] No se tienen nuevos días a registrar NACIONAL y DEPARTAMENTAL
+2020-28-04 18:00:00 INFO     [apscheduler.executors.default.run_job] Job "NacionalDepartamental (trigger: cron[minute='0,15,42'], next run at: 2020-04-28 18:15:00 -04)" executed successfully
+2020-28-04 18:01:53 INFO     [apscheduler.scheduler.add_job] Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2020-28-04 18:01:53 INFO     [apscheduler.scheduler.add_job] Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2020-28-04 18:01:53 INFO     [apscheduler.scheduler._real_add_job] Added job "NacionalDepartamental" to job store "default"
+2020-28-04 18:01:53 INFO     [apscheduler.scheduler._real_add_job] Added job "MunicipiosConsulta" to job store "default"
+2020-28-04 18:01:53 INFO     [apscheduler.scheduler.start] Scheduler started
+2020-28-04 18:02:00 INFO     [apscheduler.executors.default.run_job] Running job "MunicipiosConsulta (trigger: cron[minute='2,57'], next run at: 2020-04-28 18:02:00 -04)" (scheduled at 2020-04-28 18:02:00-04:00)
+2020-28-04 18:02:00 INFO     [__main__.MunicipiosConsulta] Ejecutando la nueva consulta municipal
+2020-28-04 18:02:01 INFO     [Infraestructure.Services.NewRecord.ExtraerIDmapa] https://juliael.carto.com/builder/c70fa175-3e6a-4955-8088-89048c6e6886/embed
+2020-28-04 18:02:12 INFO     [Infraestructure.Services.NewRecord.ExtraerIDmapa] Se consultara el mapa: 293a2875@a60cb7b38355a207a67a1ea6c9152373:1588040459439
+2020-28-04 18:02:12 INFO     [Infraestructure.Services.NewRecord.ExtraerIDmapa] Se tienen 49 municipios
+2020-28-04 18:03:52 INFO     [apscheduler.scheduler.add_job] Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2020-28-04 18:03:52 INFO     [apscheduler.scheduler.add_job] Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2020-28-04 18:03:52 INFO     [apscheduler.scheduler._real_add_job] Added job "NacionalDepartamental" to job store "default"
+2020-28-04 18:03:52 INFO     [apscheduler.scheduler._real_add_job] Added job "MunicipiosConsulta" to job store "default"
+2020-28-04 18:03:52 INFO     [apscheduler.scheduler.start] Scheduler started
+2020-28-04 18:04:00 INFO     [apscheduler.executors.default.run_job] Running job "MunicipiosConsulta (trigger: cron[minute='4,57'], next run at: 2020-04-28 18:04:00 -04)" (scheduled at 2020-04-28 18:04:00-04:00)
+2020-28-04 18:04:00 INFO     [__main__.MunicipiosConsulta] Ejecutando la nueva consulta municipal
+2020-28-04 18:04:01 INFO     [Infraestructure.Services.NewRecord.ExtraerIDmapa] https://juliael.carto.com/builder/c70fa175-3e6a-4955-8088-89048c6e6886/embed
+2020-28-04 18:04:12 INFO     [Infraestructure.Services.NewRecord.ExtraerIDmapa] Se consultara el mapa: 293a2875@a60cb7b38355a207a67a1ea6c9152373:1588040459439
+2020-28-04 18:04:12 INFO     [Infraestructure.Services.NewRecord.ExtraerIDmapa] Se tienen 49 municipios
+2020-28-04 18:04:49 INFO     [Infraestructure.Services.NewRecord.Municipios] 3900.25 \% de Consultas
+2020-28-04 18:05:25 INFO     [Infraestructure.Services.NewRecord.Municipios] 7900.25 \% de Consultas
+2020-28-04 18:06:02 INFO     [Infraestructure.Services.NewRecord.Municipios] 11900.25 \% de Consultas
+2020-28-04 18:06:38 INFO     [Infraestructure.Services.NewRecord.Municipios] 15900.25 \% de Consultas
+2020-28-04 18:07:13 INFO     [Infraestructure.Services.NewRecord.Municipios] 19900.25 \% de Consultas
+2020-28-04 18:07:50 INFO     [Infraestructure.Services.NewRecord.Municipios] 23900.25 \% de Consultas
+2020-28-04 18:08:27 INFO     [Infraestructure.Services.NewRecord.Municipios] 27900.25 \% de Consultas
+2020-28-04 18:09:03 INFO     [Infraestructure.Services.NewRecord.Municipios] 31900.25 \% de Consultas
+2020-28-04 18:09:36 INFO     [Infraestructure.Services.NewRecord.Municipios] 35900.25 \% de Consultas
+2020-28-04 18:10:13 INFO     [Infraestructure.Services.NewRecord.Municipios] 39900.25 \% de Consultas
