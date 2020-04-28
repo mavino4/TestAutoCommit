@@ -12460,3 +12460,6 @@ NameError: name 'np' is not defined
 2020-28-04 18:09:03 INFO     [Infraestructure.Services.NewRecord.Municipios] 31900.25 \% de Consultas
 2020-28-04 18:09:36 INFO     [Infraestructure.Services.NewRecord.Municipios] 35900.25 \% de Consultas
 2020-28-04 18:10:13 INFO     [Infraestructure.Services.NewRecord.Municipios] 39900.25 \% de Consultas
+2020-28-04 18:10:18 INFO     [Infraestructure.Services.NewRecord.AutoCommit] Se ejecuto el autocommit correctamente
+2020-28-04 18:10:18 INFO     [__main__.MunicipiosConsulta] Se agrego exitosamente la consulta MUNICIPAL
+2020-28-04 18:10:18 INFO     [apscheduler.executors.default.run_job] Job "MunicipiosConsulta (trigger: cron[minute='4,57'], next run at: 2020-04-28 18:57:00 -04)" executed successfully
