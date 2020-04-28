@@ -11817,3 +11817,500 @@ fecha          2020-04-27
 depto                 BOL
 activos               875
 dtype: object
+2020-28-04 01:45:07 INFO     [Infraestructure.Services.NewRecord.AutoCommit] Se ejecuto el autocommit correctamente
+2020-28-04 01:45:07 INFO     [__main__.NacionalDepartamental] Se registro nuevo día
+2020-28-04 01:45:07 INFO     [apscheduler.executors.default.run_job] Job "NacionalDepartamental (trigger: cron[minute='15,45'], next run at: 2020-04-28 02:15:00 UTC)" executed successfully
+2020-28-04 01:51:21 ERROR    [apscheduler.executors.default.run_job] Job "NuevaConsulta (trigger: cron[minute='0,12,38'], next run at: 2020-04-28 02:00:00 UTC)" raised an exception
+Traceback (most recent call last):
+  File "/home/pi/.local/lib/python3.5/site-packages/apscheduler/executors/base.py", line 125, in run_job
+    retval = job.func(*job.args, **job.kwargs)
+  File "AppScheduler.py", line 45, in NuevaConsulta
+    A.Municipios()
+  File "/home/pi/Documents/Covid_19/TestAutoCommit/Infraestructure/Services/NewRecord.py", line 233, in Municipios
+    CONSULTA_i["date_get"] = pd.to_datetime(CONSULTA_i.date_get)
+  File "/home/pi/.local/lib/python3.5/site-packages/pandas/core/generic.py", line 5179, in __getattr__
+    return object.__getattribute__(self, name)
+AttributeError: 'DataFrame' object has no attribute 'date_get'
+2020-28-04 02:00:00 INFO     [apscheduler.executors.default.run_job] Running job "NuevaConsulta (trigger: cron[minute='0,12,38'], next run at: 2020-04-28 02:12:00 UTC)" (scheduled at 2020-04-28 02:00:00+00:00)
+2020-28-04 02:00:00 INFO     [__main__.NuevaConsulta] Invoke to Madcalculator
+2020-28-04 02:12:00 WARNING  [apscheduler.scheduler._process_jobs] Execution of job "NuevaConsulta (trigger: cron[minute='0,12,38'], next run at: 2020-04-28 02:12:00 UTC)" skipped: maximum number of running instances reached (1)
+2020-28-04 02:13:27 ERROR    [apscheduler.executors.default.run_job] Job "NuevaConsulta (trigger: cron[minute='0,12,38'], next run at: 2020-04-28 02:38:00 UTC)" raised an exception
+Traceback (most recent call last):
+  File "/home/pi/.local/lib/python3.5/site-packages/apscheduler/executors/base.py", line 125, in run_job
+    retval = job.func(*job.args, **job.kwargs)
+  File "AppScheduler.py", line 45, in NuevaConsulta
+    A.Municipios()
+  File "/home/pi/Documents/Covid_19/TestAutoCommit/Infraestructure/Services/NewRecord.py", line 233, in Municipios
+    CONSULTA_i["date_get"] = pd.to_datetime(CONSULTA_i.date_get)
+  File "/home/pi/.local/lib/python3.5/site-packages/pandas/core/generic.py", line 5179, in __getattr__
+    return object.__getattribute__(self, name)
+AttributeError: 'DataFrame' object has no attribute 'date_get'
+2020-28-04 02:15:00 INFO     [apscheduler.executors.default.run_job] Running job "NacionalDepartamental (trigger: cron[minute='15,45'], next run at: 2020-04-28 02:45:00 UTC)" (scheduled at 2020-04-28 02:15:00+00:00)
+2020-28-04 02:15:00 INFO     [__main__.NacionalDepartamental] Invoke to Madcalculator
+2020-28-04 02:15:01 INFO     [Infraestructure.Services.NewRecord.Consulta] Se realizo la consulta : 27/04/20 21:20
+2020-28-04 02:15:01 INFO     [__main__.NacionalDepartamental] No se tienen nuevos días a registrar
+2020-28-04 02:15:01 INFO     [apscheduler.executors.default.run_job] Job "NacionalDepartamental (trigger: cron[minute='15,45'], next run at: 2020-04-28 02:45:00 UTC)" executed successfully
+2020-28-04 02:38:00 INFO     [apscheduler.executors.default.run_job] Running job "NuevaConsulta (trigger: cron[minute='0,12,38'], next run at: 2020-04-28 03:00:00 UTC)" (scheduled at 2020-04-28 02:38:00+00:00)
+2020-28-04 02:38:00 INFO     [__main__.NuevaConsulta] Invoke to Madcalculator
+2020-28-04 02:45:00 INFO     [apscheduler.executors.default.run_job] Running job "NacionalDepartamental (trigger: cron[minute='15,45'], next run at: 2020-04-28 03:15:00 UTC)" (scheduled at 2020-04-28 02:45:00+00:00)
+2020-28-04 02:45:00 INFO     [__main__.NacionalDepartamental] Invoke to Madcalculator
+2020-28-04 02:45:01 INFO     [Infraestructure.Services.NewRecord.Consulta] Se realizo la consulta : 27/04/20 21:20
+2020-28-04 02:45:01 INFO     [__main__.NacionalDepartamental] No se tienen nuevos días a registrar
+2020-28-04 02:45:01 INFO     [apscheduler.executors.default.run_job] Job "NacionalDepartamental (trigger: cron[minute='15,45'], next run at: 2020-04-28 03:15:00 UTC)" executed successfully
+2020-28-04 02:51:12 ERROR    [apscheduler.executors.default.run_job] Job "NuevaConsulta (trigger: cron[minute='0,12,38'], next run at: 2020-04-28 03:00:00 UTC)" raised an exception
+Traceback (most recent call last):
+  File "/home/pi/.local/lib/python3.5/site-packages/apscheduler/executors/base.py", line 125, in run_job
+    retval = job.func(*job.args, **job.kwargs)
+  File "AppScheduler.py", line 45, in NuevaConsulta
+    A.Municipios()
+  File "/home/pi/Documents/Covid_19/TestAutoCommit/Infraestructure/Services/NewRecord.py", line 233, in Municipios
+    CONSULTA_i["date_get"] = pd.to_datetime(CONSULTA_i.date_get)
+  File "/home/pi/.local/lib/python3.5/site-packages/pandas/core/generic.py", line 5179, in __getattr__
+    return object.__getattribute__(self, name)
+AttributeError: 'DataFrame' object has no attribute 'date_get'
+2020-28-04 03:00:00 INFO     [apscheduler.executors.default.run_job] Running job "NuevaConsulta (trigger: cron[minute='0,12,38'], next run at: 2020-04-28 03:12:00 UTC)" (scheduled at 2020-04-28 03:00:00+00:00)
+2020-28-04 03:00:00 INFO     [__main__.NuevaConsulta] Invoke to Madcalculator
+2020-28-04 03:12:00 WARNING  [apscheduler.scheduler._process_jobs] Execution of job "NuevaConsulta (trigger: cron[minute='0,12,38'], next run at: 2020-04-28 03:12:00 UTC)" skipped: maximum number of running instances reached (1)
+2020-28-04 03:13:20 ERROR    [apscheduler.executors.default.run_job] Job "NuevaConsulta (trigger: cron[minute='0,12,38'], next run at: 2020-04-28 03:38:00 UTC)" raised an exception
+Traceback (most recent call last):
+  File "/home/pi/.local/lib/python3.5/site-packages/apscheduler/executors/base.py", line 125, in run_job
+    retval = job.func(*job.args, **job.kwargs)
+  File "AppScheduler.py", line 45, in NuevaConsulta
+    A.Municipios()
+  File "/home/pi/Documents/Covid_19/TestAutoCommit/Infraestructure/Services/NewRecord.py", line 233, in Municipios
+    CONSULTA_i["date_get"] = pd.to_datetime(CONSULTA_i.date_get)
+  File "/home/pi/.local/lib/python3.5/site-packages/pandas/core/generic.py", line 5179, in __getattr__
+    return object.__getattribute__(self, name)
+AttributeError: 'DataFrame' object has no attribute 'date_get'
+2020-28-04 03:15:00 INFO     [apscheduler.executors.default.run_job] Running job "NacionalDepartamental (trigger: cron[minute='15,45'], next run at: 2020-04-28 03:45:00 UTC)" (scheduled at 2020-04-28 03:15:00+00:00)
+2020-28-04 03:15:00 INFO     [__main__.NacionalDepartamental] Invoke to Madcalculator
+2020-28-04 03:15:01 INFO     [Infraestructure.Services.NewRecord.Consulta] Se realizo la consulta : 27/04/20 21:20
+2020-28-04 03:15:01 INFO     [__main__.NacionalDepartamental] No se tienen nuevos días a registrar
+2020-28-04 03:15:01 INFO     [apscheduler.executors.default.run_job] Job "NacionalDepartamental (trigger: cron[minute='15,45'], next run at: 2020-04-28 03:45:00 UTC)" executed successfully
+2020-28-04 03:38:00 INFO     [apscheduler.executors.default.run_job] Running job "NuevaConsulta (trigger: cron[minute='0,12,38'], next run at: 2020-04-28 04:00:00 UTC)" (scheduled at 2020-04-28 03:38:00+00:00)
+2020-28-04 03:38:00 INFO     [__main__.NuevaConsulta] Invoke to Madcalculator
+2020-28-04 03:45:00 INFO     [apscheduler.executors.default.run_job] Running job "NacionalDepartamental (trigger: cron[minute='15,45'], next run at: 2020-04-28 04:15:00 UTC)" (scheduled at 2020-04-28 03:45:00+00:00)
+2020-28-04 03:45:00 INFO     [__main__.NacionalDepartamental] Invoke to Madcalculator
+2020-28-04 03:45:01 INFO     [Infraestructure.Services.NewRecord.Consulta] Se realizo la consulta : 27/04/20 21:20
+2020-28-04 03:45:01 INFO     [__main__.NacionalDepartamental] No se tienen nuevos días a registrar
+2020-28-04 03:45:01 INFO     [apscheduler.executors.default.run_job] Job "NacionalDepartamental (trigger: cron[minute='15,45'], next run at: 2020-04-28 04:15:00 UTC)" executed successfully
+2020-28-04 03:51:23 ERROR    [apscheduler.executors.default.run_job] Job "NuevaConsulta (trigger: cron[minute='0,12,38'], next run at: 2020-04-28 04:00:00 UTC)" raised an exception
+Traceback (most recent call last):
+  File "/home/pi/.local/lib/python3.5/site-packages/apscheduler/executors/base.py", line 125, in run_job
+    retval = job.func(*job.args, **job.kwargs)
+  File "AppScheduler.py", line 45, in NuevaConsulta
+    A.Municipios()
+  File "/home/pi/Documents/Covid_19/TestAutoCommit/Infraestructure/Services/NewRecord.py", line 233, in Municipios
+    CONSULTA_i["date_get"] = pd.to_datetime(CONSULTA_i.date_get)
+  File "/home/pi/.local/lib/python3.5/site-packages/pandas/core/generic.py", line 5179, in __getattr__
+    return object.__getattribute__(self, name)
+AttributeError: 'DataFrame' object has no attribute 'date_get'
+2020-28-04 04:00:00 INFO     [apscheduler.executors.default.run_job] Running job "NuevaConsulta (trigger: cron[minute='0,12,38'], next run at: 2020-04-28 04:12:00 UTC)" (scheduled at 2020-04-28 04:00:00+00:00)
+2020-28-04 04:00:00 INFO     [__main__.NuevaConsulta] Invoke to Madcalculator
+2020-28-04 04:12:00 WARNING  [apscheduler.scheduler._process_jobs] Execution of job "NuevaConsulta (trigger: cron[minute='0,12,38'], next run at: 2020-04-28 04:12:00 UTC)" skipped: maximum number of running instances reached (1)
+2020-28-04 04:12:46 ERROR    [apscheduler.executors.default.run_job] Job "NuevaConsulta (trigger: cron[minute='0,12,38'], next run at: 2020-04-28 04:38:00 UTC)" raised an exception
+Traceback (most recent call last):
+  File "/home/pi/.local/lib/python3.5/site-packages/apscheduler/executors/base.py", line 125, in run_job
+    retval = job.func(*job.args, **job.kwargs)
+  File "AppScheduler.py", line 45, in NuevaConsulta
+    A.Municipios()
+  File "/home/pi/Documents/Covid_19/TestAutoCommit/Infraestructure/Services/NewRecord.py", line 233, in Municipios
+    CONSULTA_i["date_get"] = pd.to_datetime(CONSULTA_i.date_get)
+  File "/home/pi/.local/lib/python3.5/site-packages/pandas/core/generic.py", line 5179, in __getattr__
+    return object.__getattribute__(self, name)
+AttributeError: 'DataFrame' object has no attribute 'date_get'
+2020-28-04 04:15:00 INFO     [apscheduler.executors.default.run_job] Running job "NacionalDepartamental (trigger: cron[minute='15,45'], next run at: 2020-04-28 04:45:00 UTC)" (scheduled at 2020-04-28 04:15:00+00:00)
+2020-28-04 04:15:00 INFO     [__main__.NacionalDepartamental] Invoke to Madcalculator
+2020-28-04 04:15:01 INFO     [Infraestructure.Services.NewRecord.Consulta] Se realizo la consulta : 27/04/20 21:20
+2020-28-04 04:15:01 INFO     [__main__.NacionalDepartamental] No se tienen nuevos días a registrar
+2020-28-04 04:15:01 INFO     [apscheduler.executors.default.run_job] Job "NacionalDepartamental (trigger: cron[minute='15,45'], next run at: 2020-04-28 04:45:00 UTC)" executed successfully
+2020-28-04 04:38:00 INFO     [apscheduler.executors.default.run_job] Running job "NuevaConsulta (trigger: cron[minute='0,12,38'], next run at: 2020-04-28 05:00:00 UTC)" (scheduled at 2020-04-28 04:38:00+00:00)
+2020-28-04 04:38:00 INFO     [__main__.NuevaConsulta] Invoke to Madcalculator
+2020-28-04 04:45:00 INFO     [apscheduler.executors.default.run_job] Running job "NacionalDepartamental (trigger: cron[minute='15,45'], next run at: 2020-04-28 05:15:00 UTC)" (scheduled at 2020-04-28 04:45:00+00:00)
+2020-28-04 04:45:00 INFO     [__main__.NacionalDepartamental] Invoke to Madcalculator
+2020-28-04 04:45:01 INFO     [Infraestructure.Services.NewRecord.Consulta] Se realizo la consulta : 27/04/20 21:20
+2020-28-04 04:45:01 INFO     [__main__.NacionalDepartamental] No se tienen nuevos días a registrar
+2020-28-04 04:45:01 INFO     [apscheduler.executors.default.run_job] Job "NacionalDepartamental (trigger: cron[minute='15,45'], next run at: 2020-04-28 05:15:00 UTC)" executed successfully
+2020-28-04 04:51:12 ERROR    [apscheduler.executors.default.run_job] Job "NuevaConsulta (trigger: cron[minute='0,12,38'], next run at: 2020-04-28 05:00:00 UTC)" raised an exception
+Traceback (most recent call last):
+  File "/home/pi/.local/lib/python3.5/site-packages/apscheduler/executors/base.py", line 125, in run_job
+    retval = job.func(*job.args, **job.kwargs)
+  File "AppScheduler.py", line 45, in NuevaConsulta
+    A.Municipios()
+  File "/home/pi/Documents/Covid_19/TestAutoCommit/Infraestructure/Services/NewRecord.py", line 233, in Municipios
+    CONSULTA_i["date_get"] = pd.to_datetime(CONSULTA_i.date_get)
+  File "/home/pi/.local/lib/python3.5/site-packages/pandas/core/generic.py", line 5179, in __getattr__
+    return object.__getattribute__(self, name)
+AttributeError: 'DataFrame' object has no attribute 'date_get'
+2020-28-04 05:00:00 INFO     [apscheduler.executors.default.run_job] Running job "NuevaConsulta (trigger: cron[minute='0,12,38'], next run at: 2020-04-28 05:12:00 UTC)" (scheduled at 2020-04-28 05:00:00+00:00)
+2020-28-04 05:00:00 INFO     [__main__.NuevaConsulta] Invoke to Madcalculator
+2020-28-04 05:12:00 WARNING  [apscheduler.scheduler._process_jobs] Execution of job "NuevaConsulta (trigger: cron[minute='0,12,38'], next run at: 2020-04-28 05:12:00 UTC)" skipped: maximum number of running instances reached (1)
+2020-28-04 05:13:16 ERROR    [apscheduler.executors.default.run_job] Job "NuevaConsulta (trigger: cron[minute='0,12,38'], next run at: 2020-04-28 05:38:00 UTC)" raised an exception
+Traceback (most recent call last):
+  File "/home/pi/.local/lib/python3.5/site-packages/apscheduler/executors/base.py", line 125, in run_job
+    retval = job.func(*job.args, **job.kwargs)
+  File "AppScheduler.py", line 45, in NuevaConsulta
+    A.Municipios()
+  File "/home/pi/Documents/Covid_19/TestAutoCommit/Infraestructure/Services/NewRecord.py", line 233, in Municipios
+    CONSULTA_i["date_get"] = pd.to_datetime(CONSULTA_i.date_get)
+  File "/home/pi/.local/lib/python3.5/site-packages/pandas/core/generic.py", line 5179, in __getattr__
+    return object.__getattribute__(self, name)
+AttributeError: 'DataFrame' object has no attribute 'date_get'
+2020-28-04 05:15:00 INFO     [apscheduler.executors.default.run_job] Running job "NacionalDepartamental (trigger: cron[minute='15,45'], next run at: 2020-04-28 05:45:00 UTC)" (scheduled at 2020-04-28 05:15:00+00:00)
+2020-28-04 05:15:00 INFO     [__main__.NacionalDepartamental] Invoke to Madcalculator
+2020-28-04 05:15:01 INFO     [Infraestructure.Services.NewRecord.Consulta] Se realizo la consulta : 27/04/20 21:20
+2020-28-04 05:15:01 INFO     [__main__.NacionalDepartamental] No se tienen nuevos días a registrar
+2020-28-04 05:15:01 INFO     [apscheduler.executors.default.run_job] Job "NacionalDepartamental (trigger: cron[minute='15,45'], next run at: 2020-04-28 05:45:00 UTC)" executed successfully
+2020-28-04 05:38:00 INFO     [apscheduler.executors.default.run_job] Running job "NuevaConsulta (trigger: cron[minute='0,12,38'], next run at: 2020-04-28 06:00:00 UTC)" (scheduled at 2020-04-28 05:38:00+00:00)
+2020-28-04 05:38:00 INFO     [__main__.NuevaConsulta] Invoke to Madcalculator
+2020-28-04 05:45:00 INFO     [apscheduler.executors.default.run_job] Running job "NacionalDepartamental (trigger: cron[minute='15,45'], next run at: 2020-04-28 06:15:00 UTC)" (scheduled at 2020-04-28 05:45:00+00:00)
+2020-28-04 05:45:00 INFO     [__main__.NacionalDepartamental] Invoke to Madcalculator
+2020-28-04 05:45:01 INFO     [Infraestructure.Services.NewRecord.Consulta] Se realizo la consulta : 27/04/20 21:20
+2020-28-04 05:45:01 INFO     [__main__.NacionalDepartamental] No se tienen nuevos días a registrar
+2020-28-04 05:45:01 INFO     [apscheduler.executors.default.run_job] Job "NacionalDepartamental (trigger: cron[minute='15,45'], next run at: 2020-04-28 06:15:00 UTC)" executed successfully
+2020-28-04 05:51:20 ERROR    [apscheduler.executors.default.run_job] Job "NuevaConsulta (trigger: cron[minute='0,12,38'], next run at: 2020-04-28 06:00:00 UTC)" raised an exception
+Traceback (most recent call last):
+  File "/home/pi/.local/lib/python3.5/site-packages/apscheduler/executors/base.py", line 125, in run_job
+    retval = job.func(*job.args, **job.kwargs)
+  File "AppScheduler.py", line 45, in NuevaConsulta
+    A.Municipios()
+  File "/home/pi/Documents/Covid_19/TestAutoCommit/Infraestructure/Services/NewRecord.py", line 233, in Municipios
+    CONSULTA_i["date_get"] = pd.to_datetime(CONSULTA_i.date_get)
+  File "/home/pi/.local/lib/python3.5/site-packages/pandas/core/generic.py", line 5179, in __getattr__
+    return object.__getattribute__(self, name)
+AttributeError: 'DataFrame' object has no attribute 'date_get'
+2020-28-04 06:00:00 INFO     [apscheduler.executors.default.run_job] Running job "NuevaConsulta (trigger: cron[minute='0,12,38'], next run at: 2020-04-28 06:12:00 UTC)" (scheduled at 2020-04-28 06:00:00+00:00)
+2020-28-04 06:00:00 INFO     [__main__.NuevaConsulta] Invoke to Madcalculator
+2020-28-04 06:12:00 WARNING  [apscheduler.scheduler._process_jobs] Execution of job "NuevaConsulta (trigger: cron[minute='0,12,38'], next run at: 2020-04-28 06:12:00 UTC)" skipped: maximum number of running instances reached (1)
+2020-28-04 06:13:12 ERROR    [apscheduler.executors.default.run_job] Job "NuevaConsulta (trigger: cron[minute='0,12,38'], next run at: 2020-04-28 06:38:00 UTC)" raised an exception
+Traceback (most recent call last):
+  File "/home/pi/.local/lib/python3.5/site-packages/apscheduler/executors/base.py", line 125, in run_job
+    retval = job.func(*job.args, **job.kwargs)
+  File "AppScheduler.py", line 45, in NuevaConsulta
+    A.Municipios()
+  File "/home/pi/Documents/Covid_19/TestAutoCommit/Infraestructure/Services/NewRecord.py", line 233, in Municipios
+    CONSULTA_i["date_get"] = pd.to_datetime(CONSULTA_i.date_get)
+  File "/home/pi/.local/lib/python3.5/site-packages/pandas/core/generic.py", line 5179, in __getattr__
+    return object.__getattribute__(self, name)
+AttributeError: 'DataFrame' object has no attribute 'date_get'
+2020-28-04 06:15:00 INFO     [apscheduler.executors.default.run_job] Running job "NacionalDepartamental (trigger: cron[minute='15,45'], next run at: 2020-04-28 06:45:00 UTC)" (scheduled at 2020-04-28 06:15:00+00:00)
+2020-28-04 06:15:00 INFO     [__main__.NacionalDepartamental] Invoke to Madcalculator
+2020-28-04 06:15:01 INFO     [Infraestructure.Services.NewRecord.Consulta] Se realizo la consulta : 27/04/20 21:20
+2020-28-04 06:15:01 INFO     [__main__.NacionalDepartamental] No se tienen nuevos días a registrar
+2020-28-04 06:15:01 INFO     [apscheduler.executors.default.run_job] Job "NacionalDepartamental (trigger: cron[minute='15,45'], next run at: 2020-04-28 06:45:00 UTC)" executed successfully
+2020-28-04 06:38:00 INFO     [apscheduler.executors.default.run_job] Running job "NuevaConsulta (trigger: cron[minute='0,12,38'], next run at: 2020-04-28 07:00:00 UTC)" (scheduled at 2020-04-28 06:38:00+00:00)
+2020-28-04 06:38:00 INFO     [__main__.NuevaConsulta] Invoke to Madcalculator
+2020-28-04 06:45:00 INFO     [apscheduler.executors.default.run_job] Running job "NacionalDepartamental (trigger: cron[minute='15,45'], next run at: 2020-04-28 07:15:00 UTC)" (scheduled at 2020-04-28 06:45:00+00:00)
+2020-28-04 06:45:00 INFO     [__main__.NacionalDepartamental] Invoke to Madcalculator
+2020-28-04 06:45:01 INFO     [Infraestructure.Services.NewRecord.Consulta] Se realizo la consulta : 27/04/20 21:20
+2020-28-04 06:45:01 INFO     [__main__.NacionalDepartamental] No se tienen nuevos días a registrar
+2020-28-04 06:45:01 INFO     [apscheduler.executors.default.run_job] Job "NacionalDepartamental (trigger: cron[minute='15,45'], next run at: 2020-04-28 07:15:00 UTC)" executed successfully
+2020-28-04 06:50:59 ERROR    [apscheduler.executors.default.run_job] Job "NuevaConsulta (trigger: cron[minute='0,12,38'], next run at: 2020-04-28 07:00:00 UTC)" raised an exception
+Traceback (most recent call last):
+  File "/home/pi/.local/lib/python3.5/site-packages/apscheduler/executors/base.py", line 125, in run_job
+    retval = job.func(*job.args, **job.kwargs)
+  File "AppScheduler.py", line 45, in NuevaConsulta
+    A.Municipios()
+  File "/home/pi/Documents/Covid_19/TestAutoCommit/Infraestructure/Services/NewRecord.py", line 233, in Municipios
+    CONSULTA_i["date_get"] = pd.to_datetime(CONSULTA_i.date_get)
+  File "/home/pi/.local/lib/python3.5/site-packages/pandas/core/generic.py", line 5179, in __getattr__
+    return object.__getattribute__(self, name)
+AttributeError: 'DataFrame' object has no attribute 'date_get'
+2020-28-04 07:00:00 INFO     [apscheduler.executors.default.run_job] Running job "NuevaConsulta (trigger: cron[minute='0,12,38'], next run at: 2020-04-28 07:12:00 UTC)" (scheduled at 2020-04-28 07:00:00+00:00)
+2020-28-04 07:00:00 INFO     [__main__.NuevaConsulta] Invoke to Madcalculator
+2020-28-04 07:12:00 WARNING  [apscheduler.scheduler._process_jobs] Execution of job "NuevaConsulta (trigger: cron[minute='0,12,38'], next run at: 2020-04-28 07:12:00 UTC)" skipped: maximum number of running instances reached (1)
+2020-28-04 07:13:18 ERROR    [apscheduler.executors.default.run_job] Job "NuevaConsulta (trigger: cron[minute='0,12,38'], next run at: 2020-04-28 07:38:00 UTC)" raised an exception
+Traceback (most recent call last):
+  File "/home/pi/.local/lib/python3.5/site-packages/apscheduler/executors/base.py", line 125, in run_job
+    retval = job.func(*job.args, **job.kwargs)
+  File "AppScheduler.py", line 45, in NuevaConsulta
+    A.Municipios()
+  File "/home/pi/Documents/Covid_19/TestAutoCommit/Infraestructure/Services/NewRecord.py", line 233, in Municipios
+    CONSULTA_i["date_get"] = pd.to_datetime(CONSULTA_i.date_get)
+  File "/home/pi/.local/lib/python3.5/site-packages/pandas/core/generic.py", line 5179, in __getattr__
+    return object.__getattribute__(self, name)
+AttributeError: 'DataFrame' object has no attribute 'date_get'
+2020-28-04 07:15:00 INFO     [apscheduler.executors.default.run_job] Running job "NacionalDepartamental (trigger: cron[minute='15,45'], next run at: 2020-04-28 07:45:00 UTC)" (scheduled at 2020-04-28 07:15:00+00:00)
+2020-28-04 07:15:00 INFO     [__main__.NacionalDepartamental] Invoke to Madcalculator
+2020-28-04 07:15:00 INFO     [Infraestructure.Services.NewRecord.Consulta] Se realizo la consulta : 27/04/20 21:20
+2020-28-04 07:15:01 INFO     [__main__.NacionalDepartamental] No se tienen nuevos días a registrar
+2020-28-04 07:15:01 INFO     [apscheduler.executors.default.run_job] Job "NacionalDepartamental (trigger: cron[minute='15,45'], next run at: 2020-04-28 07:45:00 UTC)" executed successfully
+2020-28-04 07:38:00 INFO     [apscheduler.executors.default.run_job] Running job "NuevaConsulta (trigger: cron[minute='0,12,38'], next run at: 2020-04-28 08:00:00 UTC)" (scheduled at 2020-04-28 07:38:00+00:00)
+2020-28-04 07:38:00 INFO     [__main__.NuevaConsulta] Invoke to Madcalculator
+2020-28-04 07:45:00 INFO     [apscheduler.executors.default.run_job] Running job "NacionalDepartamental (trigger: cron[minute='15,45'], next run at: 2020-04-28 08:15:00 UTC)" (scheduled at 2020-04-28 07:45:00+00:00)
+2020-28-04 07:45:00 INFO     [__main__.NacionalDepartamental] Invoke to Madcalculator
+2020-28-04 07:45:00 INFO     [Infraestructure.Services.NewRecord.Consulta] Se realizo la consulta : 27/04/20 21:20
+2020-28-04 07:45:01 INFO     [__main__.NacionalDepartamental] No se tienen nuevos días a registrar
+2020-28-04 07:45:01 INFO     [apscheduler.executors.default.run_job] Job "NacionalDepartamental (trigger: cron[minute='15,45'], next run at: 2020-04-28 08:15:00 UTC)" executed successfully
+2020-28-04 07:51:23 ERROR    [apscheduler.executors.default.run_job] Job "NuevaConsulta (trigger: cron[minute='0,12,38'], next run at: 2020-04-28 08:00:00 UTC)" raised an exception
+Traceback (most recent call last):
+  File "/home/pi/.local/lib/python3.5/site-packages/apscheduler/executors/base.py", line 125, in run_job
+    retval = job.func(*job.args, **job.kwargs)
+  File "AppScheduler.py", line 45, in NuevaConsulta
+    A.Municipios()
+  File "/home/pi/Documents/Covid_19/TestAutoCommit/Infraestructure/Services/NewRecord.py", line 233, in Municipios
+    CONSULTA_i["date_get"] = pd.to_datetime(CONSULTA_i.date_get)
+  File "/home/pi/.local/lib/python3.5/site-packages/pandas/core/generic.py", line 5179, in __getattr__
+    return object.__getattribute__(self, name)
+AttributeError: 'DataFrame' object has no attribute 'date_get'
+2020-28-04 08:00:00 INFO     [apscheduler.executors.default.run_job] Running job "NuevaConsulta (trigger: cron[minute='0,12,38'], next run at: 2020-04-28 08:12:00 UTC)" (scheduled at 2020-04-28 08:00:00+00:00)
+2020-28-04 08:00:00 INFO     [__main__.NuevaConsulta] Invoke to Madcalculator
+2020-28-04 08:12:00 WARNING  [apscheduler.scheduler._process_jobs] Execution of job "NuevaConsulta (trigger: cron[minute='0,12,38'], next run at: 2020-04-28 08:12:00 UTC)" skipped: maximum number of running instances reached (1)
+2020-28-04 08:13:00 ERROR    [apscheduler.executors.default.run_job] Job "NuevaConsulta (trigger: cron[minute='0,12,38'], next run at: 2020-04-28 08:38:00 UTC)" raised an exception
+Traceback (most recent call last):
+  File "/home/pi/.local/lib/python3.5/site-packages/apscheduler/executors/base.py", line 125, in run_job
+    retval = job.func(*job.args, **job.kwargs)
+  File "AppScheduler.py", line 45, in NuevaConsulta
+    A.Municipios()
+  File "/home/pi/Documents/Covid_19/TestAutoCommit/Infraestructure/Services/NewRecord.py", line 233, in Municipios
+    CONSULTA_i["date_get"] = pd.to_datetime(CONSULTA_i.date_get)
+  File "/home/pi/.local/lib/python3.5/site-packages/pandas/core/generic.py", line 5179, in __getattr__
+    return object.__getattribute__(self, name)
+AttributeError: 'DataFrame' object has no attribute 'date_get'
+2020-28-04 08:15:00 INFO     [apscheduler.executors.default.run_job] Running job "NacionalDepartamental (trigger: cron[minute='15,45'], next run at: 2020-04-28 08:45:00 UTC)" (scheduled at 2020-04-28 08:15:00+00:00)
+2020-28-04 08:15:00 INFO     [__main__.NacionalDepartamental] Invoke to Madcalculator
+2020-28-04 08:15:00 INFO     [Infraestructure.Services.NewRecord.Consulta] Se realizo la consulta : 27/04/20 21:20
+2020-28-04 08:15:00 INFO     [__main__.NacionalDepartamental] No se tienen nuevos días a registrar
+2020-28-04 08:15:00 INFO     [apscheduler.executors.default.run_job] Job "NacionalDepartamental (trigger: cron[minute='15,45'], next run at: 2020-04-28 08:45:00 UTC)" executed successfully
+2020-28-04 08:38:00 INFO     [apscheduler.executors.default.run_job] Running job "NuevaConsulta (trigger: cron[minute='0,12,38'], next run at: 2020-04-28 09:00:00 UTC)" (scheduled at 2020-04-28 08:38:00+00:00)
+2020-28-04 08:38:00 INFO     [__main__.NuevaConsulta] Invoke to Madcalculator
+2020-28-04 08:45:00 INFO     [apscheduler.executors.default.run_job] Running job "NacionalDepartamental (trigger: cron[minute='15,45'], next run at: 2020-04-28 09:15:00 UTC)" (scheduled at 2020-04-28 08:45:00+00:00)
+2020-28-04 08:45:00 INFO     [__main__.NacionalDepartamental] Invoke to Madcalculator
+2020-28-04 08:45:00 INFO     [Infraestructure.Services.NewRecord.Consulta] Se realizo la consulta : 27/04/20 21:20
+2020-28-04 08:45:00 INFO     [__main__.NacionalDepartamental] No se tienen nuevos días a registrar
+2020-28-04 08:45:00 INFO     [apscheduler.executors.default.run_job] Job "NacionalDepartamental (trigger: cron[minute='15,45'], next run at: 2020-04-28 09:15:00 UTC)" executed successfully
+2020-28-04 08:51:23 ERROR    [apscheduler.executors.default.run_job] Job "NuevaConsulta (trigger: cron[minute='0,12,38'], next run at: 2020-04-28 09:00:00 UTC)" raised an exception
+Traceback (most recent call last):
+  File "/home/pi/.local/lib/python3.5/site-packages/apscheduler/executors/base.py", line 125, in run_job
+    retval = job.func(*job.args, **job.kwargs)
+  File "AppScheduler.py", line 45, in NuevaConsulta
+    A.Municipios()
+  File "/home/pi/Documents/Covid_19/TestAutoCommit/Infraestructure/Services/NewRecord.py", line 233, in Municipios
+    CONSULTA_i["date_get"] = pd.to_datetime(CONSULTA_i.date_get)
+  File "/home/pi/.local/lib/python3.5/site-packages/pandas/core/generic.py", line 5179, in __getattr__
+    return object.__getattribute__(self, name)
+AttributeError: 'DataFrame' object has no attribute 'date_get'
+2020-28-04 09:00:00 INFO     [apscheduler.executors.default.run_job] Running job "NuevaConsulta (trigger: cron[minute='0,12,38'], next run at: 2020-04-28 09:12:00 UTC)" (scheduled at 2020-04-28 09:00:00+00:00)
+2020-28-04 09:00:00 INFO     [__main__.NuevaConsulta] Invoke to Madcalculator
+2020-28-04 09:12:00 WARNING  [apscheduler.scheduler._process_jobs] Execution of job "NuevaConsulta (trigger: cron[minute='0,12,38'], next run at: 2020-04-28 09:12:00 UTC)" skipped: maximum number of running instances reached (1)
+2020-28-04 09:13:12 ERROR    [apscheduler.executors.default.run_job] Job "NuevaConsulta (trigger: cron[minute='0,12,38'], next run at: 2020-04-28 09:38:00 UTC)" raised an exception
+Traceback (most recent call last):
+  File "/home/pi/.local/lib/python3.5/site-packages/apscheduler/executors/base.py", line 125, in run_job
+    retval = job.func(*job.args, **job.kwargs)
+  File "AppScheduler.py", line 45, in NuevaConsulta
+    A.Municipios()
+  File "/home/pi/Documents/Covid_19/TestAutoCommit/Infraestructure/Services/NewRecord.py", line 233, in Municipios
+    CONSULTA_i["date_get"] = pd.to_datetime(CONSULTA_i.date_get)
+  File "/home/pi/.local/lib/python3.5/site-packages/pandas/core/generic.py", line 5179, in __getattr__
+    return object.__getattribute__(self, name)
+AttributeError: 'DataFrame' object has no attribute 'date_get'
+2020-28-04 09:15:00 INFO     [apscheduler.executors.default.run_job] Running job "NacionalDepartamental (trigger: cron[minute='15,45'], next run at: 2020-04-28 09:45:00 UTC)" (scheduled at 2020-04-28 09:15:00+00:00)
+2020-28-04 09:15:00 INFO     [__main__.NacionalDepartamental] Invoke to Madcalculator
+2020-28-04 09:15:00 INFO     [Infraestructure.Services.NewRecord.Consulta] Se realizo la consulta : 27/04/20 21:20
+2020-28-04 09:15:00 INFO     [__main__.NacionalDepartamental] No se tienen nuevos días a registrar
+2020-28-04 09:15:00 INFO     [apscheduler.executors.default.run_job] Job "NacionalDepartamental (trigger: cron[minute='15,45'], next run at: 2020-04-28 09:45:00 UTC)" executed successfully
+2020-28-04 09:38:00 INFO     [apscheduler.executors.default.run_job] Running job "NuevaConsulta (trigger: cron[minute='0,12,38'], next run at: 2020-04-28 10:00:00 UTC)" (scheduled at 2020-04-28 09:38:00+00:00)
+2020-28-04 09:38:00 INFO     [__main__.NuevaConsulta] Invoke to Madcalculator
+2020-28-04 09:45:00 INFO     [apscheduler.executors.default.run_job] Running job "NacionalDepartamental (trigger: cron[minute='15,45'], next run at: 2020-04-28 10:15:00 UTC)" (scheduled at 2020-04-28 09:45:00+00:00)
+2020-28-04 09:45:00 INFO     [__main__.NacionalDepartamental] Invoke to Madcalculator
+2020-28-04 09:45:00 INFO     [Infraestructure.Services.NewRecord.Consulta] Se realizo la consulta : 27/04/20 21:20
+2020-28-04 09:45:00 INFO     [__main__.NacionalDepartamental] No se tienen nuevos días a registrar
+2020-28-04 09:45:00 INFO     [apscheduler.executors.default.run_job] Job "NacionalDepartamental (trigger: cron[minute='15,45'], next run at: 2020-04-28 10:15:00 UTC)" executed successfully
+2020-28-04 09:50:52 ERROR    [apscheduler.executors.default.run_job] Job "NuevaConsulta (trigger: cron[minute='0,12,38'], next run at: 2020-04-28 10:00:00 UTC)" raised an exception
+Traceback (most recent call last):
+  File "/home/pi/.local/lib/python3.5/site-packages/apscheduler/executors/base.py", line 125, in run_job
+    retval = job.func(*job.args, **job.kwargs)
+  File "AppScheduler.py", line 45, in NuevaConsulta
+    A.Municipios()
+  File "/home/pi/Documents/Covid_19/TestAutoCommit/Infraestructure/Services/NewRecord.py", line 233, in Municipios
+    CONSULTA_i["date_get"] = pd.to_datetime(CONSULTA_i.date_get)
+  File "/home/pi/.local/lib/python3.5/site-packages/pandas/core/generic.py", line 5179, in __getattr__
+    return object.__getattribute__(self, name)
+AttributeError: 'DataFrame' object has no attribute 'date_get'
+2020-28-04 10:00:00 INFO     [apscheduler.executors.default.run_job] Running job "NuevaConsulta (trigger: cron[minute='0,12,38'], next run at: 2020-04-28 10:12:00 UTC)" (scheduled at 2020-04-28 10:00:00+00:00)
+2020-28-04 10:00:00 INFO     [__main__.NuevaConsulta] Invoke to Madcalculator
+2020-28-04 10:12:00 WARNING  [apscheduler.scheduler._process_jobs] Execution of job "NuevaConsulta (trigger: cron[minute='0,12,38'], next run at: 2020-04-28 10:12:00 UTC)" skipped: maximum number of running instances reached (1)
+2020-28-04 10:13:21 ERROR    [apscheduler.executors.default.run_job] Job "NuevaConsulta (trigger: cron[minute='0,12,38'], next run at: 2020-04-28 10:38:00 UTC)" raised an exception
+Traceback (most recent call last):
+  File "/home/pi/.local/lib/python3.5/site-packages/apscheduler/executors/base.py", line 125, in run_job
+    retval = job.func(*job.args, **job.kwargs)
+  File "AppScheduler.py", line 45, in NuevaConsulta
+    A.Municipios()
+  File "/home/pi/Documents/Covid_19/TestAutoCommit/Infraestructure/Services/NewRecord.py", line 233, in Municipios
+    CONSULTA_i["date_get"] = pd.to_datetime(CONSULTA_i.date_get)
+  File "/home/pi/.local/lib/python3.5/site-packages/pandas/core/generic.py", line 5179, in __getattr__
+    return object.__getattribute__(self, name)
+AttributeError: 'DataFrame' object has no attribute 'date_get'
+2020-28-04 10:15:00 INFO     [apscheduler.executors.default.run_job] Running job "NacionalDepartamental (trigger: cron[minute='15,45'], next run at: 2020-04-28 10:45:00 UTC)" (scheduled at 2020-04-28 10:15:00+00:00)
+2020-28-04 10:15:00 INFO     [__main__.NacionalDepartamental] Invoke to Madcalculator
+2020-28-04 10:15:00 INFO     [Infraestructure.Services.NewRecord.Consulta] Se realizo la consulta : 27/04/20 21:20
+2020-28-04 10:15:00 INFO     [__main__.NacionalDepartamental] No se tienen nuevos días a registrar
+2020-28-04 10:15:00 INFO     [apscheduler.executors.default.run_job] Job "NacionalDepartamental (trigger: cron[minute='15,45'], next run at: 2020-04-28 10:45:00 UTC)" executed successfully
+2020-28-04 10:38:00 INFO     [apscheduler.executors.default.run_job] Running job "NuevaConsulta (trigger: cron[minute='0,12,38'], next run at: 2020-04-28 11:00:00 UTC)" (scheduled at 2020-04-28 10:38:00+00:00)
+2020-28-04 10:38:00 INFO     [__main__.NuevaConsulta] Invoke to Madcalculator
+2020-28-04 10:45:00 INFO     [apscheduler.executors.default.run_job] Running job "NacionalDepartamental (trigger: cron[minute='15,45'], next run at: 2020-04-28 11:15:00 UTC)" (scheduled at 2020-04-28 10:45:00+00:00)
+2020-28-04 10:45:00 INFO     [__main__.NacionalDepartamental] Invoke to Madcalculator
+2020-28-04 10:45:00 INFO     [Infraestructure.Services.NewRecord.Consulta] Se realizo la consulta : 27/04/20 21:20
+2020-28-04 10:45:00 INFO     [__main__.NacionalDepartamental] No se tienen nuevos días a registrar
+2020-28-04 10:45:00 INFO     [apscheduler.executors.default.run_job] Job "NacionalDepartamental (trigger: cron[minute='15,45'], next run at: 2020-04-28 11:15:00 UTC)" executed successfully
+2020-28-04 10:51:15 ERROR    [apscheduler.executors.default.run_job] Job "NuevaConsulta (trigger: cron[minute='0,12,38'], next run at: 2020-04-28 11:00:00 UTC)" raised an exception
+Traceback (most recent call last):
+  File "/home/pi/.local/lib/python3.5/site-packages/apscheduler/executors/base.py", line 125, in run_job
+    retval = job.func(*job.args, **job.kwargs)
+  File "AppScheduler.py", line 45, in NuevaConsulta
+    A.Municipios()
+  File "/home/pi/Documents/Covid_19/TestAutoCommit/Infraestructure/Services/NewRecord.py", line 233, in Municipios
+    CONSULTA_i["date_get"] = pd.to_datetime(CONSULTA_i.date_get)
+  File "/home/pi/.local/lib/python3.5/site-packages/pandas/core/generic.py", line 5179, in __getattr__
+    return object.__getattribute__(self, name)
+AttributeError: 'DataFrame' object has no attribute 'date_get'
+2020-28-04 11:00:00 INFO     [apscheduler.executors.default.run_job] Running job "NuevaConsulta (trigger: cron[minute='0,12,38'], next run at: 2020-04-28 11:12:00 UTC)" (scheduled at 2020-04-28 11:00:00+00:00)
+2020-28-04 11:00:00 INFO     [__main__.NuevaConsulta] Invoke to Madcalculator
+2020-28-04 11:12:00 WARNING  [apscheduler.scheduler._process_jobs] Execution of job "NuevaConsulta (trigger: cron[minute='0,12,38'], next run at: 2020-04-28 11:12:00 UTC)" skipped: maximum number of running instances reached (1)
+2020-28-04 11:13:20 ERROR    [apscheduler.executors.default.run_job] Job "NuevaConsulta (trigger: cron[minute='0,12,38'], next run at: 2020-04-28 11:38:00 UTC)" raised an exception
+Traceback (most recent call last):
+  File "/home/pi/.local/lib/python3.5/site-packages/apscheduler/executors/base.py", line 125, in run_job
+    retval = job.func(*job.args, **job.kwargs)
+  File "AppScheduler.py", line 45, in NuevaConsulta
+    A.Municipios()
+  File "/home/pi/Documents/Covid_19/TestAutoCommit/Infraestructure/Services/NewRecord.py", line 233, in Municipios
+    CONSULTA_i["date_get"] = pd.to_datetime(CONSULTA_i.date_get)
+  File "/home/pi/.local/lib/python3.5/site-packages/pandas/core/generic.py", line 5179, in __getattr__
+    return object.__getattribute__(self, name)
+AttributeError: 'DataFrame' object has no attribute 'date_get'
+2020-28-04 11:15:00 INFO     [apscheduler.executors.default.run_job] Running job "NacionalDepartamental (trigger: cron[minute='15,45'], next run at: 2020-04-28 11:45:00 UTC)" (scheduled at 2020-04-28 11:15:00+00:00)
+2020-28-04 11:15:00 INFO     [__main__.NacionalDepartamental] Invoke to Madcalculator
+2020-28-04 11:15:00 INFO     [Infraestructure.Services.NewRecord.Consulta] Se realizo la consulta : 27/04/20 21:20
+2020-28-04 11:15:00 INFO     [__main__.NacionalDepartamental] No se tienen nuevos días a registrar
+2020-28-04 11:15:00 INFO     [apscheduler.executors.default.run_job] Job "NacionalDepartamental (trigger: cron[minute='15,45'], next run at: 2020-04-28 11:45:00 UTC)" executed successfully
+2020-28-04 11:38:00 INFO     [apscheduler.executors.default.run_job] Running job "NuevaConsulta (trigger: cron[minute='0,12,38'], next run at: 2020-04-28 12:00:00 UTC)" (scheduled at 2020-04-28 11:38:00+00:00)
+2020-28-04 11:38:00 INFO     [__main__.NuevaConsulta] Invoke to Madcalculator
+2020-28-04 11:45:00 INFO     [apscheduler.executors.default.run_job] Running job "NacionalDepartamental (trigger: cron[minute='15,45'], next run at: 2020-04-28 12:15:00 UTC)" (scheduled at 2020-04-28 11:45:00+00:00)
+2020-28-04 11:45:00 INFO     [__main__.NacionalDepartamental] Invoke to Madcalculator
+2020-28-04 11:45:00 INFO     [Infraestructure.Services.NewRecord.Consulta] Se realizo la consulta : 27/04/20 21:20
+2020-28-04 11:45:00 INFO     [__main__.NacionalDepartamental] No se tienen nuevos días a registrar
+2020-28-04 11:45:00 INFO     [apscheduler.executors.default.run_job] Job "NacionalDepartamental (trigger: cron[minute='15,45'], next run at: 2020-04-28 12:15:00 UTC)" executed successfully
+2020-28-04 11:52:11 ERROR    [apscheduler.executors.default.run_job] Job "NuevaConsulta (trigger: cron[minute='0,12,38'], next run at: 2020-04-28 12:00:00 UTC)" raised an exception
+Traceback (most recent call last):
+  File "/home/pi/.local/lib/python3.5/site-packages/apscheduler/executors/base.py", line 125, in run_job
+    retval = job.func(*job.args, **job.kwargs)
+  File "AppScheduler.py", line 45, in NuevaConsulta
+    A.Municipios()
+  File "/home/pi/Documents/Covid_19/TestAutoCommit/Infraestructure/Services/NewRecord.py", line 233, in Municipios
+    CONSULTA_i["date_get"] = pd.to_datetime(CONSULTA_i.date_get)
+  File "/home/pi/.local/lib/python3.5/site-packages/pandas/core/generic.py", line 5179, in __getattr__
+    return object.__getattribute__(self, name)
+AttributeError: 'DataFrame' object has no attribute 'date_get'
+2020-28-04 12:00:00 INFO     [apscheduler.executors.default.run_job] Running job "NuevaConsulta (trigger: cron[minute='0,12,38'], next run at: 2020-04-28 12:12:00 UTC)" (scheduled at 2020-04-28 12:00:00+00:00)
+2020-28-04 12:00:00 INFO     [__main__.NuevaConsulta] Invoke to Madcalculator
+2020-28-04 12:12:00 WARNING  [apscheduler.scheduler._process_jobs] Execution of job "NuevaConsulta (trigger: cron[minute='0,12,38'], next run at: 2020-04-28 12:12:00 UTC)" skipped: maximum number of running instances reached (1)
+2020-28-04 12:13:23 ERROR    [apscheduler.executors.default.run_job] Job "NuevaConsulta (trigger: cron[minute='0,12,38'], next run at: 2020-04-28 12:38:00 UTC)" raised an exception
+Traceback (most recent call last):
+  File "/home/pi/.local/lib/python3.5/site-packages/apscheduler/executors/base.py", line 125, in run_job
+    retval = job.func(*job.args, **job.kwargs)
+  File "AppScheduler.py", line 45, in NuevaConsulta
+    A.Municipios()
+  File "/home/pi/Documents/Covid_19/TestAutoCommit/Infraestructure/Services/NewRecord.py", line 233, in Municipios
+    CONSULTA_i["date_get"] = pd.to_datetime(CONSULTA_i.date_get)
+  File "/home/pi/.local/lib/python3.5/site-packages/pandas/core/generic.py", line 5179, in __getattr__
+    return object.__getattribute__(self, name)
+AttributeError: 'DataFrame' object has no attribute 'date_get'
+2020-28-04 12:15:00 INFO     [apscheduler.executors.default.run_job] Running job "NacionalDepartamental (trigger: cron[minute='15,45'], next run at: 2020-04-28 12:45:00 UTC)" (scheduled at 2020-04-28 12:15:00+00:00)
+2020-28-04 12:15:00 INFO     [__main__.NacionalDepartamental] Invoke to Madcalculator
+2020-28-04 12:15:00 INFO     [Infraestructure.Services.NewRecord.Consulta] Se realizo la consulta : 27/04/20 21:20
+2020-28-04 12:15:00 INFO     [__main__.NacionalDepartamental] No se tienen nuevos días a registrar
+2020-28-04 12:15:00 INFO     [apscheduler.executors.default.run_job] Job "NacionalDepartamental (trigger: cron[minute='15,45'], next run at: 2020-04-28 12:45:00 UTC)" executed successfully
+2020-28-04 12:38:00 INFO     [apscheduler.executors.default.run_job] Running job "NuevaConsulta (trigger: cron[minute='0,12,38'], next run at: 2020-04-28 13:00:00 UTC)" (scheduled at 2020-04-28 12:38:00+00:00)
+2020-28-04 12:38:00 INFO     [__main__.NuevaConsulta] Invoke to Madcalculator
+2020-28-04 12:45:00 INFO     [apscheduler.executors.default.run_job] Running job "NacionalDepartamental (trigger: cron[minute='15,45'], next run at: 2020-04-28 13:15:00 UTC)" (scheduled at 2020-04-28 12:45:00+00:00)
+2020-28-04 12:45:00 INFO     [__main__.NacionalDepartamental] Invoke to Madcalculator
+2020-28-04 12:45:00 INFO     [Infraestructure.Services.NewRecord.Consulta] Se realizo la consulta : 27/04/20 21:20
+2020-28-04 12:45:00 INFO     [__main__.NacionalDepartamental] No se tienen nuevos días a registrar
+2020-28-04 12:45:00 INFO     [apscheduler.executors.default.run_job] Job "NacionalDepartamental (trigger: cron[minute='15,45'], next run at: 2020-04-28 13:15:00 UTC)" executed successfully
+2020-28-04 12:51:31 ERROR    [apscheduler.executors.default.run_job] Job "NuevaConsulta (trigger: cron[minute='0,12,38'], next run at: 2020-04-28 13:00:00 UTC)" raised an exception
+Traceback (most recent call last):
+  File "/home/pi/.local/lib/python3.5/site-packages/apscheduler/executors/base.py", line 125, in run_job
+    retval = job.func(*job.args, **job.kwargs)
+  File "AppScheduler.py", line 45, in NuevaConsulta
+    A.Municipios()
+  File "/home/pi/Documents/Covid_19/TestAutoCommit/Infraestructure/Services/NewRecord.py", line 233, in Municipios
+    CONSULTA_i["date_get"] = pd.to_datetime(CONSULTA_i.date_get)
+  File "/home/pi/.local/lib/python3.5/site-packages/pandas/core/generic.py", line 5179, in __getattr__
+    return object.__getattribute__(self, name)
+AttributeError: 'DataFrame' object has no attribute 'date_get'
+2020-28-04 13:00:00 INFO     [apscheduler.executors.default.run_job] Running job "NuevaConsulta (trigger: cron[minute='0,12,38'], next run at: 2020-04-28 13:12:00 UTC)" (scheduled at 2020-04-28 13:00:00+00:00)
+2020-28-04 13:00:00 INFO     [__main__.NuevaConsulta] Invoke to Madcalculator
+2020-28-04 13:12:00 WARNING  [apscheduler.scheduler._process_jobs] Execution of job "NuevaConsulta (trigger: cron[minute='0,12,38'], next run at: 2020-04-28 13:12:00 UTC)" skipped: maximum number of running instances reached (1)
+2020-28-04 13:13:27 ERROR    [apscheduler.executors.default.run_job] Job "NuevaConsulta (trigger: cron[minute='0,12,38'], next run at: 2020-04-28 13:38:00 UTC)" raised an exception
+Traceback (most recent call last):
+  File "/home/pi/.local/lib/python3.5/site-packages/apscheduler/executors/base.py", line 125, in run_job
+    retval = job.func(*job.args, **job.kwargs)
+  File "AppScheduler.py", line 45, in NuevaConsulta
+    A.Municipios()
+  File "/home/pi/Documents/Covid_19/TestAutoCommit/Infraestructure/Services/NewRecord.py", line 233, in Municipios
+    CONSULTA_i["date_get"] = pd.to_datetime(CONSULTA_i.date_get)
+  File "/home/pi/.local/lib/python3.5/site-packages/pandas/core/generic.py", line 5179, in __getattr__
+    return object.__getattribute__(self, name)
+AttributeError: 'DataFrame' object has no attribute 'date_get'
+2020-28-04 13:15:00 INFO     [apscheduler.executors.default.run_job] Running job "NacionalDepartamental (trigger: cron[minute='15,45'], next run at: 2020-04-28 13:45:00 UTC)" (scheduled at 2020-04-28 13:15:00+00:00)
+2020-28-04 13:15:00 INFO     [__main__.NacionalDepartamental] Invoke to Madcalculator
+2020-28-04 13:15:00 INFO     [Infraestructure.Services.NewRecord.Consulta] Se realizo la consulta : 27/04/20 21:20
+2020-28-04 13:15:00 INFO     [__main__.NacionalDepartamental] No se tienen nuevos días a registrar
+2020-28-04 13:15:00 INFO     [apscheduler.executors.default.run_job] Job "NacionalDepartamental (trigger: cron[minute='15,45'], next run at: 2020-04-28 13:45:00 UTC)" executed successfully
+2020-28-04 13:38:00 INFO     [apscheduler.executors.default.run_job] Running job "NuevaConsulta (trigger: cron[minute='0,12,38'], next run at: 2020-04-28 14:00:00 UTC)" (scheduled at 2020-04-28 13:38:00+00:00)
+2020-28-04 13:38:00 INFO     [__main__.NuevaConsulta] Invoke to Madcalculator
+2020-28-04 13:45:00 INFO     [apscheduler.executors.default.run_job] Running job "NacionalDepartamental (trigger: cron[minute='15,45'], next run at: 2020-04-28 14:15:00 UTC)" (scheduled at 2020-04-28 13:45:00+00:00)
+2020-28-04 13:45:00 INFO     [__main__.NacionalDepartamental] Invoke to Madcalculator
+2020-28-04 13:45:00 INFO     [Infraestructure.Services.NewRecord.Consulta] Se realizo la consulta : 27/04/20 21:20
+2020-28-04 13:45:00 INFO     [__main__.NacionalDepartamental] No se tienen nuevos días a registrar
+2020-28-04 13:45:00 INFO     [apscheduler.executors.default.run_job] Job "NacionalDepartamental (trigger: cron[minute='15,45'], next run at: 2020-04-28 14:15:00 UTC)" executed successfully
+2020-28-04 13:51:21 ERROR    [apscheduler.executors.default.run_job] Job "NuevaConsulta (trigger: cron[minute='0,12,38'], next run at: 2020-04-28 14:00:00 UTC)" raised an exception
+Traceback (most recent call last):
+  File "/home/pi/.local/lib/python3.5/site-packages/apscheduler/executors/base.py", line 125, in run_job
+    retval = job.func(*job.args, **job.kwargs)
+  File "AppScheduler.py", line 45, in NuevaConsulta
+    A.Municipios()
+  File "/home/pi/Documents/Covid_19/TestAutoCommit/Infraestructure/Services/NewRecord.py", line 233, in Municipios
+    CONSULTA_i["date_get"] = pd.to_datetime(CONSULTA_i.date_get)
+  File "/home/pi/.local/lib/python3.5/site-packages/pandas/core/generic.py", line 5179, in __getattr__
+    return object.__getattribute__(self, name)
+AttributeError: 'DataFrame' object has no attribute 'date_get'
+2020-28-04 14:00:00 INFO     [apscheduler.executors.default.run_job] Running job "NuevaConsulta (trigger: cron[minute='0,12,38'], next run at: 2020-04-28 14:12:00 UTC)" (scheduled at 2020-04-28 14:00:00+00:00)
+2020-28-04 14:00:00 INFO     [__main__.NuevaConsulta] Invoke to Madcalculator
+2020-28-04 14:12:00 WARNING  [apscheduler.scheduler._process_jobs] Execution of job "NuevaConsulta (trigger: cron[minute='0,12,38'], next run at: 2020-04-28 14:12:00 UTC)" skipped: maximum number of running instances reached (1)
+2020-28-04 14:13:23 ERROR    [apscheduler.executors.default.run_job] Job "NuevaConsulta (trigger: cron[minute='0,12,38'], next run at: 2020-04-28 14:38:00 UTC)" raised an exception
+Traceback (most recent call last):
+  File "/home/pi/.local/lib/python3.5/site-packages/apscheduler/executors/base.py", line 125, in run_job
+    retval = job.func(*job.args, **job.kwargs)
+  File "AppScheduler.py", line 45, in NuevaConsulta
+    A.Municipios()
+  File "/home/pi/Documents/Covid_19/TestAutoCommit/Infraestructure/Services/NewRecord.py", line 233, in Municipios
+    CONSULTA_i["date_get"] = pd.to_datetime(CONSULTA_i.date_get)
+  File "/home/pi/.local/lib/python3.5/site-packages/pandas/core/generic.py", line 5179, in __getattr__
+    return object.__getattribute__(self, name)
+AttributeError: 'DataFrame' object has no attribute 'date_get'
+2020-28-04 14:15:00 INFO     [apscheduler.executors.default.run_job] Running job "NacionalDepartamental (trigger: cron[minute='15,45'], next run at: 2020-04-28 14:45:00 UTC)" (scheduled at 2020-04-28 14:15:00+00:00)
+2020-28-04 14:15:00 INFO     [__main__.NacionalDepartamental] Invoke to Madcalculator
+2020-28-04 14:15:00 INFO     [Infraestructure.Services.NewRecord.Consulta] Se realizo la consulta : 27/04/20 21:20
+2020-28-04 14:15:00 INFO     [__main__.NacionalDepartamental] No se tienen nuevos días a registrar
+2020-28-04 14:15:00 INFO     [apscheduler.executors.default.run_job] Job "NacionalDepartamental (trigger: cron[minute='15,45'], next run at: 2020-04-28 14:45:00 UTC)" executed successfully
+2020-28-04 14:38:00 INFO     [apscheduler.executors.default.run_job] Running job "NuevaConsulta (trigger: cron[minute='0,12,38'], next run at: 2020-04-28 15:00:00 UTC)" (scheduled at 2020-04-28 14:38:00+00:00)
+2020-28-04 14:38:00 INFO     [__main__.NuevaConsulta] Invoke to Madcalculator
+2020-28-04 14:45:00 INFO     [apscheduler.executors.default.run_job] Running job "NacionalDepartamental (trigger: cron[minute='15,45'], next run at: 2020-04-28 15:15:00 UTC)" (scheduled at 2020-04-28 14:45:00+00:00)
+2020-28-04 14:45:00 INFO     [__main__.NacionalDepartamental] Invoke to Madcalculator
+2020-28-04 14:45:00 INFO     [Infraestructure.Services.NewRecord.Consulta] Se realizo la consulta : 27/04/20 21:20
+2020-28-04 14:45:00 INFO     [__main__.NacionalDepartamental] No se tienen nuevos días a registrar
+2020-28-04 14:45:00 INFO     [apscheduler.executors.default.run_job] Job "NacionalDepartamental (trigger: cron[minute='15,45'], next run at: 2020-04-28 15:15:00 UTC)" executed successfully
+2020-28-04 14:51:23 ERROR    [apscheduler.executors.default.run_job] Job "NuevaConsulta (trigger: cron[minute='0,12,38'], next run at: 2020-04-28 15:00:00 UTC)" raised an exception
+Traceback (most recent call last):
+  File "/home/pi/.local/lib/python3.5/site-packages/apscheduler/executors/base.py", line 125, in run_job
+    retval = job.func(*job.args, **job.kwargs)
+  File "AppScheduler.py", line 45, in NuevaConsulta
+    A.Municipios()
+  File "/home/pi/Documents/Covid_19/TestAutoCommit/Infraestructure/Services/NewRecord.py", line 233, in Municipios
+    CONSULTA_i["date_get"] = pd.to_datetime(CONSULTA_i.date_get)
+  File "/home/pi/.local/lib/python3.5/site-packages/pandas/core/generic.py", line 5179, in __getattr__
+    return object.__getattribute__(self, name)
+AttributeError: 'DataFrame' object has no attribute 'date_get'
+2020-28-04 15:00:00 INFO     [apscheduler.executors.default.run_job] Running job "NuevaConsulta (trigger: cron[minute='0,12,38'], next run at: 2020-04-28 15:12:00 UTC)" (scheduled at 2020-04-28 15:00:00+00:00)
+2020-28-04 15:00:00 INFO     [__main__.NuevaConsulta] Invoke to Madcalculator
