@@ -11424,3 +11424,5 @@ FileNotFoundError: [Errno 2] No such file or directory: '/Bolivia/Mon, 27 Apr 20
 2020-26-04 20:31:52 INFO     [apscheduler.scheduler.start] Scheduler started
 2020-26-04 20:33:00 INFO     [apscheduler.executors.default.run_job] Running job "NuevaConsulta (trigger: cron[minute='0,33'], next run at: 2020-04-26 20:33:00 -04)" (scheduled at 2020-04-26 20:33:00-04:00)
 2020-26-04 20:33:00 INFO     [__main__.NuevaConsulta] Invoke to Madcalculator
+2020-26-04 20:39:13 INFO     [Infraestructure.Services.NewRecord.AutoCommit] Se ejecuto el autocommit correctamente
+2020-26-04 20:39:13 INFO     [apscheduler.executors.default.run_job] Job "NuevaConsulta (trigger: cron[minute='0,33'], next run at: 2020-04-26 21:00:00 -04)" executed successfully

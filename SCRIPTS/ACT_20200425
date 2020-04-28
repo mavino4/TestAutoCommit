@@ -1,0 +1,38 @@
+INSERT INTO "main"."daily_covid19_BO" ( "daily_id",  "daily_fecha", "daily_depto", 
+ "daily_total_confirmados",  "daily_total_decesos", "daily_total_recuperados", "daily_total_activos",
+ "daily_total_sospechosos", "daily_total_descartados", "daily_total_total") VALUES
+( 145, '2020-04-25','SC' ,489 	,20 ,33 ,436 ,0	, 0 ,0); 
+
+INSERT INTO "main"."daily_covid19_BO" ( "daily_id",  "daily_fecha", "daily_depto", 
+ "daily_total_confirmados",  "daily_total_decesos", "daily_total_recuperados", "daily_total_activos",
+ "daily_total_sospechosos", "daily_total_descartados", "daily_total_total") VALUES
+( 146,  '2020-04-25','LP' ,59 	,15 ,15 ,129 ,0	,0,0);
+INSERT INTO "main"."daily_covid19_BO" ( "daily_id",  "daily_fecha", "daily_depto", 
+ "daily_total_confirmados",  "daily_total_decesos", "daily_total_recuperados", "daily_total_activos",
+ "daily_total_sospechosos", "daily_total_descartados", "daily_total_total") VALUES
+( 147, '2020-04-25','CB' ,71 	,6 	,13 ,52	 ,0	,0,0);
+INSERT INTO "main"."daily_covid19_BO" ( "daily_id",  "daily_fecha", "daily_depto", 
+ "daily_total_confirmados",  "daily_total_decesos", "daily_total_recuperados", "daily_total_activos",
+ "daily_total_sospechosos", "daily_total_descartados", "daily_total_total") VALUES
+( 148, '2020-04-25','OR' ,65 	,2 	,8 	,55	 ,0	,0,0);
+INSERT INTO "main"."daily_covid19_BO" ( "daily_id",  "daily_fecha", "daily_depto", 
+ "daily_total_confirmados",  "daily_total_decesos", "daily_total_recuperados", "daily_total_activos",
+ "daily_total_sospechosos", "daily_total_descartados", "daily_total_total") VALUES
+( 149, '2020-04-25','BN' ,39 	,1 	,0 	,38	 ,0	,0,0);
+INSERT INTO "main"."daily_covid19_BO" ( "daily_id",  "daily_fecha", "daily_depto", 
+ "daily_total_confirmados",  "daily_total_decesos", "daily_total_recuperados", "daily_total_activos",
+ "daily_total_sospechosos", "daily_total_descartados", "daily_total_total") VALUES
+( 150 ,'2020-04-25','PT' ,26 	,1 	,0 	,25	 ,0	,0,0);
+INSERT INTO "main"."daily_covid19_BO" ( "daily_id",  "daily_fecha", "daily_depto", 
+ "daily_total_confirmados",  "daily_total_decesos", "daily_total_recuperados", "daily_total_activos",
+ "daily_total_sospechosos", "daily_total_descartados", "daily_total_total") VALUES
+( 160, '2020-04-25','PN' ,12 	,1 	,6 	,5	 ,0	,0,0);
+INSERT INTO "main"."daily_covid19_BO" ( "daily_id",  "daily_fecha", "daily_depto", 
+ "daily_total_confirmados",  "daily_total_decesos", "daily_total_recuperados", "daily_total_activos",
+ "daily_total_sospechosos", "daily_total_descartados", "daily_total_total") VALUES
+( 170 ,'2020-04-25','TJ' ,3 		,0 	,0 	,3	 ,0	,0,0);
+INSERT INTO "main"."daily_covid19_BO" ( "daily_id",  "daily_fecha", "daily_depto", 
+ "daily_total_confirmados",  "daily_total_decesos", "daily_total_recuperados", "daily_total_activos",
+ "daily_total_sospechosos", "daily_total_descartados", "daily_total_total") VALUES
+( 171, '2020-04-25','CH' ,2 		,0 	,0 	,2 	 ,0	,0,0);
+ 
