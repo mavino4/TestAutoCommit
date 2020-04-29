@@ -31,6 +31,7 @@ def NacionalDepartamental():
         A.Diferencial(fecha_act)
         d.ReportDaily(fecha_act)
         d.TotalDepto()
+        d.TotalNacional()
         A.AutoCommit()
         log.info("Se registro nuevo día NACIONAL y DEPARTAMENTAL" )
     else :

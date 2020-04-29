@@ -22,7 +22,7 @@ Registros históricos por tipo de caso y departamento.  (fechas en filas)
 
 ## Sugerencias y colaboraciones
 
-Todo feedback o ayuda es bienvenida, puedes abrir un Issuie o contactarme a marco.antonio.vino@gmail.com
+Todo feedback o ayuda es bienvenida, puedes abrir un Issuie o contactame en marco.antonio.vino@gmail.com
 
 ## Futuros avances
 * Consolidar información Municipal

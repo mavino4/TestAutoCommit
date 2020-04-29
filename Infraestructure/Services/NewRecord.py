@@ -282,8 +282,7 @@ class GenerateReports(object):
 		daily_total_decesos, daily_total_recuperados,
 		daily_delta_confirmados, daily_delta_activos,
 		daily_delta_decesos, daily_delta_recuperados
-		from daily_covid19_BO
-		order by daily_depto """, conn)
+		from daily_covid19_BO""", conn)
 		conn.close()
 		time_series.to_csv("COVID19_BOL.csv", index=False )
 		self._logger.info("Se actualizo el reporte COVID19_BOL")
