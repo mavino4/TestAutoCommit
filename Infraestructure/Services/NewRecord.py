@@ -274,6 +274,20 @@ class GenerateReports(object):
 		time_series.to_csv("COVID19_BOL_depto.csv", index=False )
 		self._logger.info("Se actualizo el reporte COVID19_BOL_depto")
 
+	def TotalNacional(self):
+		conn = sqlite3.connect('BD_COVID19_BOL.sqlite')
+
+		time_series = pd.read_sql_query("""select daily_fecha, 
+		daily_total_confirmados, daily_total_activos,
+		daily_total_decesos, daily_total_recuperados,
+		daily_delta_confirmados, daily_delta_activos,
+		daily_delta_decesos, daily_delta_recuperados
+		from daily_covid19_BO
+		order by daily_depto """, conn)
+		conn.close()
+		time_series.to_csv("COVID19_BOL.csv", index=False )
+		self._logger.info("Se actualizo el reporte COVID19_BOL")
+
 
 class ConsultaMunicipios(object):
 	_logger = None
