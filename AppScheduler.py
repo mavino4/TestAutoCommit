@@ -28,12 +28,13 @@ def NacionalDepartamental():
     fecha_act = A.Consulta()
 
     if fecha_act: 
-	    A.Diferencial(fecha_act)
-	    d.ReportDaily(fecha_act)
-	    A.AutoCommit()
-	    log.info("Se registro nuevo día NACIONAL y DEPARTAMENTAL" )
+        A.Diferencial(fecha_act)
+        d.ReportDaily(fecha_act)
+        d.TotalDepto()
+        A.AutoCommit()
+        log.info("Se registro nuevo día NACIONAL y DEPARTAMENTAL" )
     else :
-    	log.info("No se tienen nuevos días a registrar NACIONAL y DEPARTAMENTAL")
+        log.info("No se tienen nuevos días a registrar NACIONAL y DEPARTAMENTAL")
 
 def MunicipiosConsulta():
     log.info('Ejecutando la nueva consulta municipal')
