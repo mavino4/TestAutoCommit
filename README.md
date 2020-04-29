@@ -17,7 +17,8 @@ Historico total e incremento por día y tipo de caso a nivel departamental.  (fe
 Base de datos con toda la información extraida de las diferentes fuentes. 
 
 **.csv**
-Registros históricos por tipo de caso y departamento.  (fechas en filas)
+`COVID19_BOL_depto.csv` Registros históricos por tipo de caso y departamento.  (fechas en filas)
+`COVID19_BOL.csv` Registros históricos por tipo de caso a nivel nacional.  (fechas en filas)
 
 
 ## Sugerencias y colaboraciones
