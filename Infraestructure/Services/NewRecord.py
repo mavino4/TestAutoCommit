@@ -167,7 +167,7 @@ class GenerateReports(object):
 		df_t[['daily_fecha', 'daily_depto', 'daily_total_confirmados', 'daily_total_activos',
 		   'daily_total_decesos', 'daily_total_recuperados',
 		   'daily_total_sospechosos', 'daily_total_descartados',
-		   'daily_total_total']].to_csv("daily_report/{}.csv".format(report_date),index=False)
+		   'daily_total_total']].to_csv("daily_reports/{}.csv".format(report_date),index=False)
 
 		# Confirmed 	Deaths 	Recovered 	Active
 
@@ -220,9 +220,9 @@ class ConsultaMunicipios(object):
 		browser.close()
 
 		nro_mun = requests.get("https://cartocdn-gusc-a.global.ssl.fastly.net/juliael/api/v1/map/juliael@{mapa_id}/dataview/eac18df0-661c-4c8f-a7c6-532c7ed3b5bf".format(mapa_id=mapa_id))
-		nro_mun.json()["count"]
-		self._logger.info("Se tienen {} municipios".format(nro_mun.json()["count"]))
-		return  mapa_id , nro_mun.json()["count"]
+		nro_mun.json()
+		self._logger.info("Se tienen {} municipios".format(nro_mun.json()))
+		return  mapa_id , nro_mun.json()
 
 	def Municipios(self, mapa_id):
 		responses = []
