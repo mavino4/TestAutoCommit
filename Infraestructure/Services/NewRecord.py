@@ -31,7 +31,7 @@ class NewRecord(object):
         conn = sqlite3.connect('BD_COVID19_BOL.sqlite')
 
         df_t = pd.read_sql_query("""select * 
-        from daily_covid19_BO
+        from daily_covid19_BO_depto
         where daily_fecha = '{fecha_consulta}'
         order by daily_depto """.format(fecha_consulta = pd.to_datetime(registro_i_json["fecha"]).strftime("%Y-%m-%d")), conn)
         conn.close()
@@ -61,13 +61,29 @@ class NewRecord(object):
             sr_bol_i["depto"] = "BOL"
             sr_bol_i["activos"] = sr_bol_i.confirmados - sr_bol_i.decesos - sr_bol_i.recuperados
             self._logger.info(sr_bol_i)
+
+            # Insertar Valores NACIONAL
             conn = sqlite3.connect('BD_COVID19_BOL.sqlite')
             cur = conn.cursor()
-    		## Añadir orden que garanize que los elementos que se insertan son los correctos
-            # Insertando los valores
+            cur.execute("""INSERT INTO daily_covid19_BO(
+            daily_total_confirmados
+            ,daily_total_decesos
+            ,daily_total_recuperados
+            ,daily_total_sospechosos
+            ,daily_total_descartados
+            ,daily_total_total
+            ,daily_fecha
+            ,daily_total_activos) VALUES (?,?,?,?,?,?,?,?);""", 
+            list(sr_bol_i[['confirmados', 'decesos', 'recuperados',  'sospechosos','descartados',
+            'total', 'fecha', 'activos']]))
+            conn.commit()
+            conn.close()
+            # Insertando los valores departamental
+            conn = sqlite3.connect('BD_COVID19_BOL.sqlite')
+            cur = conn.cursor()
             valores = [list(j) for i,j  in df_day_i[['depto', 'confirmados', 'decesos', 'recuperados', 'sospechosos',
             'descartados', 'total', 'fecha', 'activos']].iterrows()]
-            cur.executemany("""INSERT INTO daily_covid19_BO(daily_depto
+            cur.executemany("""INSERT INTO daily_covid19_BO_depto(daily_depto
             ,daily_total_confirmados
             ,daily_total_decesos
             ,daily_total_recuperados
@@ -84,16 +100,16 @@ class NewRecord(object):
 
         
     def Diferencial(self, fecha_actualizacion):
-        # Calculando la diferencial con los valores nuevos
+        # Calculando la diferencial con los valores nuevos DEPARTAMENTAL
         conn = sqlite3.connect('BD_COVID19_BOL.sqlite')
 
         df_t_1 = pd.read_sql_query("""select * 
-        from daily_covid19_BO
+        from daily_covid19_BO_depto
         where daily_fecha = strftime('%Y-%m-%d',date('{fecha_consulta}', '-1 day'))
         order by daily_depto """.format(fecha_consulta = fecha_actualizacion), conn)
 
         df_t = pd.read_sql_query("""select * 
-        from daily_covid19_BO
+        from daily_covid19_BO_depto
         where daily_fecha = '{fecha_consulta}'
         order by daily_depto """.format(fecha_consulta = fecha_actualizacion), conn)
 
@@ -125,7 +141,7 @@ class NewRecord(object):
         cur = conn.cursor()
 
         for val_i in valores_delta : 
-            cur.execute("""UPDATE  daily_covid19_BO
+            cur.execute("""UPDATE  daily_covid19_BO_depto
             SET   
               daily_delta_confirmados = {0}
             , daily_delta_activos     =     {1} 
@@ -137,6 +153,39 @@ class NewRecord(object):
             where daily_id = {7}
             and daily_fecha = '{8}'
             and daily_depto = '{9}'  """.format(*val_i))
+        conn.commit()
+        conn.close()
+        # Añadiendo la diferencial NACIONAL
+        conn = sqlite3.connect('BD_COVID19_BOL.sqlite')
+        df_t_1 = pd.read_sql_query("""select * 
+        from daily_covid19_BO
+        where daily_fecha = strftime('%Y-%m-%d',date('{fecha_consulta}', '-1 day'))""".format(fecha_consulta = fecha_actualizacion), conn)
+        df_t = pd.read_sql_query("""select * 
+        from daily_covid19_BO
+        where daily_fecha = '{fecha_consulta}'""".format(fecha_consulta = fecha_actualizacion), conn)
+        conn.close()
+        a_t = df_t[[  'daily_total_confirmados', 'daily_total_activos',
+        	'daily_total_decesos', 'daily_total_recuperados',
+        	'daily_total_sospechosos', 'daily_total_descartados',
+        	'daily_total_total']].values
+        a_t_1 = df_t_1[[  'daily_total_confirmados', 'daily_total_activos',
+        	'daily_total_decesos', 'daily_total_recuperados',
+        	'daily_total_sospechosos', 'daily_total_descartados',
+        	'daily_total_total']].values
+        delta =  np.where(a_t== None , 0, a_t)  - np.where(a_t_1== None , 0, a_t_1) 
+        val = list(delta[0]) + list(df_t[['daily_id', 'daily_fecha']].values[0])
+        conn = sqlite3.connect('BD_COVID19_BOL.sqlite')
+        cur = conn.cursor()
+        cur.execute("""UPDATE  daily_covid19_BO
+        SET   daily_delta_confirmados = {0}
+        , daily_delta_activos     =     {1} 
+        , daily_delta_decesos     =     {2}
+        , daily_delta_recuperados =  {3}
+        , daily_delta_sospechosos =   {4}
+        , daily_delta_descartados =   {5}
+        , daily_delta_total       =   {6}                   
+        where daily_id = {7}
+        and daily_fecha = '{8}'  """.format(*val))
         conn.commit()
         conn.close()
     
@@ -158,7 +207,7 @@ class GenerateReports(object):
 		conn = sqlite3.connect('BD_COVID19_BOL.sqlite')
 
 		df_t = pd.read_sql_query("""select * 
-		from daily_covid19_BO
+		from daily_covid19_BO_depto
 		where daily_fecha = '{fecha_consulta}'
 		order by daily_depto """.format(fecha_consulta = report_date), conn)
 
@@ -183,7 +232,7 @@ class GenerateReports(object):
 		daily_total_total,
 		daily_delta_confirmados, daily_delta_activos,
 		daily_delta_decesos, daily_delta_recuperados
-		from daily_covid19_BO
+		from daily_covid19_BO_depto
 		order by daily_depto """.format(fecha_consulta = report_date), conn)
 
 		conn.close()
@@ -219,7 +268,7 @@ class GenerateReports(object):
 		daily_total_decesos, daily_total_recuperados,
 		daily_delta_confirmados, daily_delta_activos,
 		daily_delta_decesos, daily_delta_recuperados
-		from daily_covid19_BO
+		from daily_covid19_BO_depto
 		order by daily_depto """, conn)
 		conn.close()
 		time_series.to_csv("COVID19_BOL_depto.csv", index=False )

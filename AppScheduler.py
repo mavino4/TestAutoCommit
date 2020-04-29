@@ -41,7 +41,7 @@ def MunicipiosConsulta():
     A = ConsultaMunicipios()
     B = NewRecord()
 
-    mapa_id, nro_mun = A.ExtraerIDmapa()
+    mapa_id, nro_mun , dia_i , hora_i , ruta_i = A.ExtraerIDmapa()
     # Si el mapa es nuevo o cambiaron la cantidad de municipios
     A.Municipios(mapa_id)
     B.AutoCommit()
