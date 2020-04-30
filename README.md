@@ -27,7 +27,7 @@ Base de datos con toda la información extraida de las diferentes fuentes.
 
 ## Sugerencias y colaboraciones
 
-Todo feedback o ayuda es bienvenida, puedes abrir un Issuie o contactame en marco.antonio.vino@gmail.com
+Todo feedback o ayuda es bienvenida, puedes abrir un Issues o contactame en marco.antonio.vino@gmail.com
 
 ## Futuros avances
 * Consolidar información Municipal
