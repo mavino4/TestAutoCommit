@@ -391,6 +391,6 @@ class ConsultaMunicipios(object):
 				conn.close() 
 				self._logger.info("Se inserto una nueva fecha")
 		else : 
-			CONSULTA_i.to_csv("Municipios/{} Municipios.csv".format(CONSULTA_i.date_get.max().strftime("%Y-%m-%d %H:%M")),index=False)
+			CONSULTA_i.to_csv("Municipios/{} Municipios.csv".format(CONSULTA_i.date_get.max()),index=False)
 
 
