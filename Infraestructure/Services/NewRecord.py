@@ -323,7 +323,7 @@ class ConsultaMunicipios(object):
 
 	def Municipios(self, mapa_id):
 		responses = []
-		for i in tqdm(range(400)):
+		for i in tqdm(range(50, 350)):
 			registro_i = requests.get("https://cartocdn-gusc-c.global.ssl.fastly.net/juliael/api/v1/map/juliael@{mapa_id}/4/attributes/{mun_id}".format(mapa_id = mapa_id, mun_id= i))
 			responses.append([i, registro_i.headers["Date"] , registro_i])
 			time.sleep(0.5)
@@ -338,11 +338,59 @@ class ConsultaMunicipios(object):
 				dict_i.update(response_i[2].json())
 				VALUES[str(response_i[0])] = dict_i
 
-		VALUES.keys()
-
 		CONSULTA_i = pd.DataFrame(VALUES).T.reset_index()
-		CONSULTA_i["date_get"] = pd.to_datetime(CONSULTA_i.date_get)
+		CONSULTA_i["date_get"] = pd.to_datetime(CONSULTA_i.date_get).dt.strftime("%Y-%m-%d %H:%M")
 		CONSULTA_i.fillna(value=0, inplace=True)
 		CONSULTA_i["activos"] = CONSULTA_i.positivos - CONSULTA_i.decesos - CONSULTA_i.recuperados
 
-		CONSULTA_i.to_csv("Municipios/{} Municipios.csv".format(CONSULTA_i.date_get.max().strftime("%Y-%m-%d %H:%M")),index=False)
+		params = CONSULTA_i.sum()[["decesos","positivos","recuperados","activos"]].to_dict()
+		params
+		# ¿ A que día corresponde ? 
+		conn = sqlite3.connect('BD_COVID19_BOL.sqlite')
+		df_t = pd.read_sql_query("""select daily_fecha
+		from daily_covid19_BO
+		where daily_total_decesos ={decesos}
+		and daily_total_confirmados = {positivos}
+		and daily_total_recuperados = {recuperados}
+		and daily_total_activos = {activos}""".format(**params)
+								, conn)
+		conn.close()
+
+
+		if df_t.shape[0]>0: # ¿existen fechas válidas ?
+			self._logger.info("Los municipios corresponden a una fecha válida")
+			fec_coincidencia = df_t.daily_fecha.values[0]
+
+			CONSULTA_i["fecha"] = fec_coincidencia
+			valores = [list(j) for i,j  in CONSULTA_i[['fecha', 'index', 'date_get', 'municipio', 'positivos', 'activos','decesos', 'recuperados']]
+			.iterrows()]
+			
+			# Consultando si existe la variable
+			conn = sqlite3.connect('BD_COVID19_BOL.sqlite')
+			registros_previos = pd.read_sql_query("""select daily_fecha
+			from daily_covid19_BO_mun
+			where daily_fecha = {}""".format(fec_coincidencia) , conn)
+			conn.close()
+			
+			if registros_previos.shape[0]>0: # ¿Tenemos registrado elementos?
+				self._logger.info("Ya se tienen registros de estos municipios para la fecha asiganada")
+				pass
+			else : 
+				conn = sqlite3.connect('BD_COVID19_BOL.sqlite')
+				cur = conn.cursor()
+				cur.executemany("""INSERT INTO daily_covid19_BO_mun (
+				daily_fecha
+				,mun_id
+				,mun_fec_consulta
+				,daily_municipio
+				,daily_total_confirmados
+				,daily_total_activos
+				,daily_total_decesos
+				,daily_total_recuperados) VALUES (?,?,?,?,?,?,?,?);""", valores)
+				conn.commit()
+				conn.close() 
+				self._logger.info("Se inserto una nueva fecha")
+		else : 
+			CONSULTA_i.to_csv("Municipios/{} Municipios.csv".format(CONSULTA_i.date_get.max().strftime("%Y-%m-%d %H:%M")),index=False)
+
+
