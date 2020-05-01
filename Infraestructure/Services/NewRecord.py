@@ -382,7 +382,7 @@ class ConsultaMunicipios(object):
 			conn = sqlite3.connect('BD_COVID19_BOL.sqlite')
 			registros_previos = pd.read_sql_query("""select daily_fecha
 			from daily_covid19_BO_mun
-			where daily_fecha = {}""".format(fec_coincidencia) , conn)
+			where daily_fecha = '{}'""".format(fec_coincidencia) , conn)
 			conn.close()
 			
 			if registros_previos.shape[0]>0: # ¿Tenemos registrado elementos?
