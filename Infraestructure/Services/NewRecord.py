@@ -215,7 +215,7 @@ class GenerateReports(object):
 					file_out.write("> Información actualizada al : {}\n".format(fecha_act))
 				else : 
 					file_out.write(line)
-					
+
 	def ReportDaily(self, report_date):
 		conn = sqlite3.connect('BD_COVID19_BOL.sqlite')
 
@@ -416,6 +416,6 @@ class ReporteSNIS(object):
 	def GetReporte(self):
 		now_time = datetime.now()
 		pdf_i = requests.get("https://snis.minsalud.gob.bo/images/vigilancia_2018/REPORTE_EPIDEMIOLOGICO.pdf")
-		with open("ReporteSNIS/{}.pdf".format(now_time.strftime("%Y-%m-%d_%H_%M")) , "wb") as a: 
+		with open("ReportesSNIS/{}.pdf".format(now_time.strftime("%Y-%m-%d_%H_%M")) , "wb") as a: 
 			a.write(pdf_i.content)
 		self._logger.info("Se guardo el reporte del SNIS")
