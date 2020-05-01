@@ -1,6 +1,6 @@
 daily_fecha,daily_depto,daily_delta_confirmados,daily_delta_activos,daily_delta_decesos,daily_delta_recuperados
 2020-04-30,BN,0,0,0,0
-2020-04-30,CB,0,0,0,0
+2020-04-30,CB,0,-3,0,3
 2020-04-30,CH,0,0,0,0
 2020-04-30,LP,16,15,0,1
 2020-04-30,OR,0,0,0,0

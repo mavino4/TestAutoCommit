@@ -10,6 +10,7 @@ import re
 from bs4 import BeautifulSoup
 import numpy as np
 from tqdm import tqdm
+from datetime import datetime
 
 
 
@@ -203,6 +204,18 @@ class GenerateReports(object):
 	def __init__(self):
 		self._logger = Logger.CreateLogger(__name__)
 
+	def ActFec_README(self, file_path, fecha_act):
+		A = open(file_path, "r")
+		lines_A = A.readlines()
+		A.close()
+
+		with  open(file_path, "w+") as file_out :  
+			for line in lines_A: 
+				if "> Información actualizada al : " in line: 
+					file_out.write("> Información actualizada al : {}\n".format(fecha_act))
+				else : 
+					file_out.write(line)
+					
 	def ReportDaily(self, report_date):
 		conn = sqlite3.connect('BD_COVID19_BOL.sqlite')
 
@@ -394,3 +407,15 @@ class ConsultaMunicipios(object):
 			CONSULTA_i.to_csv("Municipios/{} Municipios.csv".format(CONSULTA_i.date_get.max()),index=False)
 
 
+
+class ReporteSNIS(object):
+	_logger = None
+	def __init__(self):
+		self._logger = Logger.CreateLogger(__name__)
+
+	def GetReporte(self):
+		now_time = datetime.now()
+		pdf_i = requests.get("https://snis.minsalud.gob.bo/images/vigilancia_2018/REPORTE_EPIDEMIOLOGICO.pdf")
+		with open("ReporteSNIS/{}.pdf".format(now_time.strftime("%Y-%m-%d_%H_%M")) , "wb") as a: 
+			a.write(pdf_i.content)
+		self._logger.info("Se guardo el reporte del SNIS")
