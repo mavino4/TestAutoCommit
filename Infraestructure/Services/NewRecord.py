@@ -307,7 +307,7 @@ class ConsultaMunicipios(object):
 		self._logger = Logger.CreateLogger(__name__)
 
 	def ExtraerIDmapa(self):
-		A = requests.get("https://www.boliviasegura.gob.bo")
+		A = requests.get("https://snis.minsalud.gob.bo/")
 		page = BeautifulSoup(A.text, 'html.parser')
 		iframe = page.find_all("iframe")[0]
 		self._logger.info(iframe.attrs["src"])
@@ -322,13 +322,13 @@ class ConsultaMunicipios(object):
 		time.sleep(2)
 		lista_dir = []
 		for img in browser.find_elements_by_tag_name("img"):
-			lista_dir = lista_dir + re.findall(".*juliael@(.*)/\d,", img.get_attribute("src"))
+			lista_dir = lista_dir + re.findall(".*datosagt2020@(.*)/\d,", img.get_attribute("src"))
 
 		mapa_id = np.unique(np.array(lista_dir))[0] # Todos las rutas deberìan referenciar al mismo mapa 
 		self._logger.info("Se consultara el mapa: " + mapa_id)
 		browser.close()
 
-		nro_mun = requests.get("https://cartocdn-gusc-a.global.ssl.fastly.net/juliael/api/v1/map/juliael@{mapa_id}/dataview/eac18df0-661c-4c8f-a7c6-532c7ed3b5bf".format(mapa_id=mapa_id))
+		nro_mun = requests.get("https://cartocdn-gusc-d.global.ssl.fastly.net/datosagt2020/api/v1/map/datosagt2020@{mapa_id}/dataview/eac18df0-661c-4c8f-a7c6-532c7ed3b5bf".format(mapa_id=mapa_id))
 		nro_mun.json()
 		self._logger.info("Se tienen {} municipios".format(nro_mun.json()))
 		
