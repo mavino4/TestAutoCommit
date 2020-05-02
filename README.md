@@ -2,7 +2,7 @@
 Este repositorio de datos está destinado a compartir la información historica y actualizada sobre casos positivos, decesos, recuperaciones y casos activos del COVID19 en Bolivia. 
 A nivel:  nacional, departamental y municipal (en proceso) 
 
-> Información actualizada al : 2020-04-30
+> Información actualizada al : 2020-05-01
 
 # Tipos de reportes 
 
