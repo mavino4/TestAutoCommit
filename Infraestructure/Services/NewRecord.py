@@ -336,8 +336,8 @@ class ConsultaMunicipios(object):
 
 	def Municipios(self, mapa_id):
 		responses = []
-		for i in tqdm(range(400)):
-			registro_i = requests.get("https://cartocdn-gusc-c.global.ssl.fastly.net/juliael/api/v1/map/juliael@{mapa_id}/3/attributes/{mun_id}".format(mapa_id = mapa_id, mun_id= i))
+		for i in tqdm(range(50,150)):
+			registro_i = requests.get("https://cartocdn-gusc-c.global.ssl.fastly.net/juliael/api/v1/map/juliaelhttps://cartocdn-gusc-d.global.ssl.fastly.net/datosagt2020/api/v1/map/datosagt2020@@{mapa_id}/3/attributes/{mun_id}".format(mapa_id = mapa_id, mun_id= i))
 			responses.append([i, registro_i.headers["Date"] , registro_i])
 			time.sleep(0.5)
 			if (i+1) % 40 == 0 :
