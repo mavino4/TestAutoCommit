@@ -23,8 +23,8 @@ class NewRecord(object):
     def Consulta(self):
         registro_i = requests.get("https://boliviasegura.agetic.gob.bo/wp-content/json/api.php")
         registro_i_json = registro_i.json()
-        registro_i_json["fecha"]
         self._logger.info('Se realizo la consulta : {}'.format(registro_i_json["fecha"]))
+        fecha_json = pd.to_datetime(registro_i_json["fecha"], format="%d/%m/%y %H:%M").strftime("%Y-%m-%d")
 
 
 
@@ -34,11 +34,11 @@ class NewRecord(object):
         df_t = pd.read_sql_query("""select * 
         from daily_covid19_BO_depto
         where daily_fecha = '{fecha_consulta}'
-        order by daily_depto """.format(fecha_consulta = pd.to_datetime(registro_i_json["fecha"]).strftime("%Y-%m-%d")), conn)
+        order by daily_depto """.format(fecha_consulta = fecha_json), conn)
         conn.close()
 
         if not df_t.shape[0] > 0: 
-            with open('JSON_BoliviaSegura/{}.json'.format(pd.to_datetime(registro_i_json["fecha"]).strftime("%Y%m%d")), 'w') as outfile :
+            with open('JSON_BoliviaSegura/{}.json'.format(fecha_json), 'w') as outfile :
                 json.dump(registro_i_json, outfile)
             self._logger.info("Se guardo la consulta en formato JSON")
 	        # Por departamentos 
@@ -49,7 +49,7 @@ class NewRecord(object):
 	            day_i[key] = val_j
 
             df_day_i = pd.DataFrame(day_i).T.rename_axis(["depto"]).reset_index()
-            df_day_i["fecha"] = pd.to_datetime(registro_i_json["fecha"]).strftime("%Y-%m-%d")
+            df_day_i["fecha"] = fecha_json
             df_day_i["depto"] = df_day_i["depto"].str.upper()
             df_day_i["activos"] = df_day_i.confirmados - df_day_i.decesos - df_day_i.recuperados
             self._logger.info(df_day_i)
@@ -58,7 +58,7 @@ class NewRecord(object):
             bol_i = registro_i_json["contador"]
             bol_i["total"] = registro_i_json["total"]
             sr_bol_i = pd.Series(bol_i)
-            sr_bol_i["fecha"] = pd.to_datetime(registro_i_json["fecha"]).strftime("%Y-%m-%d")
+            sr_bol_i["fecha"] = fecha_json
             sr_bol_i["depto"] = "BOL"
             sr_bol_i["activos"] = sr_bol_i.confirmados - sr_bol_i.decesos - sr_bol_i.recuperados
             self._logger.info(sr_bol_i)
@@ -95,7 +95,7 @@ class NewRecord(object):
             ,daily_total_activos) VALUES (?,?,?,?,?,?,?,?,?);""", valores)
             conn.commit()
             conn.close()
-            return pd.to_datetime(registro_i_json["fecha"]).strftime("%Y-%m-%d")
+            return fecha_json
         else:
             return False
 
