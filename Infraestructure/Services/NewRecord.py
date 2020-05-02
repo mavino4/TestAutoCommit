@@ -328,7 +328,7 @@ class ConsultaMunicipios(object):
 		self._logger.info("Se consultara el mapa: " + mapa_id)
 		browser.close()
 
-		nro_mun = requests.get("https://cartocdn-gusc-d.global.ssl.fastly.net/datosagt2020/api/v1/map/datosagt2020@{mapa_id}/dataview/eac18df0-661c-4c8f-a7c6-532c7ed3b5bf".format(mapa_id=mapa_id))
+		nro_mun = requests.get("https://cartocdn-gusc-d.global.ssl.fastly.net/datosagt2020/api/v1/map/datosagt2020@{mapa_id}/dataview/3251a68b-6892-4205-85d8-1d7452aa3ec0".format(mapa_id=mapa_id))
 		nro_mun.json()
 		self._logger.info("Se tienen {} municipios".format(nro_mun.json()))
 		
@@ -336,7 +336,7 @@ class ConsultaMunicipios(object):
 
 	def Municipios(self, mapa_id):
 		responses = []
-		for i in tqdm(range(50,100)):
+		for i in tqdm(range(400)):
 			registro_i = requests.get("https://cartocdn-gusc-d.global.ssl.fastly.net/datosagt2020/api/v1/map/datosagt2020@{mapa_id}/3/attributes/{mun_id}".format(mapa_id = mapa_id, mun_id= i))
 			responses.append([i, registro_i.headers["Date"] , registro_i])
 			time.sleep(0.5)
