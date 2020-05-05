@@ -1,0 +1,10 @@
+daily_fecha,daily_depto,daily_delta_confirmados,daily_delta_activos,daily_delta_decesos,daily_delta_recuperados
+2020-05-04,BN,0,0,0,0
+2020-05-04,CB,1,1,0,0
+2020-05-04,CH,1,0,1,0
+2020-05-04,LP,2,-5,0,7
+2020-05-04,OR,0,0,0,0
+2020-05-04,PN,0,0,0,0
+2020-05-04,PT,7,7,0,0
+2020-05-04,SC,75,70,4,1
+2020-05-04,TJ,1,0,1,0
