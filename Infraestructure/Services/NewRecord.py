@@ -24,7 +24,7 @@ class NewRecord(object):
         registro_i = requests.get("https://boliviasegura.agetic.gob.bo/wp-content/json/api.php")
         registro_i_json = registro_i.json()
         self._logger.info('Se realizo la consulta : {}'.format(registro_i_json["fecha"]))
-        fecha_json = pd.to_datetime(registro_i_json["fecha"], format="%d/%m/%y %H%M").strftime("%Y-%m-%d")
+        fecha_json = pd.to_datetime(registro_i_json["fecha"], format="%d/%m/%y %H:%M").strftime("%Y-%m-%d")
 
 
 
