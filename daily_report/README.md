@@ -1,5 +1,5 @@
 # Daily report 
-> Información actualizada al : 2020-05-11
+> Información actualizada al : 2020-05-12
 
 `YYYY-MM-DD.csv`  Registros totales por departamento a la fecha del archivo. 
 `YYYY-MM-DD_delta.csv`  Variaciones respecto al día anterior por departamento a la fecha del archivo. 
