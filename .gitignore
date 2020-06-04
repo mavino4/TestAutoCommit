@@ -5,3 +5,13 @@
 Notebooks/
 SCRIPTS/
 Bolivia/
+Configuration/
+Infraestructure/
+Loggin/
+__pycache__/
+ReportesSNIS/
+
+# Ignore files
+AppScheduler.py
+appSettings.json
+geckodriver.log
