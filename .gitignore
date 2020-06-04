@@ -10,8 +10,16 @@ Infraestructure/
 Loggin/
 __pycache__/
 ReportesSNIS/
+.ipynb_checkpoints/
+.vs/
+
+
+
 
 # Ignore files
 AppScheduler.py
 appSettings.json
 geckodriver.log
+LoggerConsultaCOVID_19.log.2020-04-30
+LoggerConsultaCOVID_19.log.2020-05-02
+
