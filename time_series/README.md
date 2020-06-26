@@ -1,5 +1,5 @@
 # Time series
-> Información actualizada al : 2020-06-21
+> Información actualizada al : 2020-06-22
 
 `time_series_covid19_xxxxxxx_BO.csv`  Registros totales por tipo de caso y departamento hasta la fecha de actualización. 
 
